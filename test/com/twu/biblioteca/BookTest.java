@@ -27,4 +27,11 @@ public class BookTest {
 
         assertEquals("2015", book.getYearPublished());
     }
+
+    @Test
+    public void shouldReturnTheCheckOutStatusOfTheBook() {
+        Book book = new Book("My Book", "Rajat", "2015");
+
+        assertEquals(false, book.isBookCheckedOuted());
+    }
 }
