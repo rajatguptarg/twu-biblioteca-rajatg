@@ -34,7 +34,7 @@
     </target>
 
     <target name="run" depends="createjar">
-        <java classname="com.calculator.Main">
+        <java classname="com.twu.biblioteca.Main">
             <arg value="-h"/>
             <classpath>
                 <pathelement location="lib/app.jar"/>
