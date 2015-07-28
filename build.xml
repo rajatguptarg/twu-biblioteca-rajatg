@@ -11,14 +11,16 @@
     </path>
 
     <target name="compile">
-        <javac srcdir="src" includeantruntime="false" destdir="out" classpathref="classpath"/>
-        <javac srcdir="test" includeantruntime="false" destdir="out" classpathref="classpath"/>
+        <javac srcdir="src" includeantruntime="false" destdir="build" classpathref="classpath"/>
+        <javac srcdir="test" includeantruntime="false" destdir="build" classpathref="classpath"/>
     </target>
 
     <target name="runjunit" depends="compile">
         <junit haltonfailure="true" printsummary="true" showoutput="yes">
             <test name="com.twu.biblioteca.BibliotecaAppTest"/>
             <test name="com.twu.biblioteca.MenuTest"/>
+            <test name="com.twu.biblioteca.BookTest"/>
+            <test name="com.twu.biblioteca.LibraryTest"/>
             <classpath>
                 <pathelement location="out"/>
                 <path refid="classpath"/>
@@ -29,7 +31,7 @@
 
     <target name="createjar" depends="runjunit">
         <jar destfile="lib/app.jar"
-             basedir="out"
+             basedir="build"
              excludes="**/Test.class"/>
     </target>
 

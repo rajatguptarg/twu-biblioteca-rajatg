@@ -14,7 +14,7 @@ public class Library {
     public void listAllBooks() {
         System.out.println("LIST OF BOOKS:");
         for(Book book : listOfBooks) {
-            System.out.println(book.getBookName());
+            System.out.println(book.getBookName()+" "+book.getBookAuthor()+" "+book.getYearPublished());
         }
     }
 }

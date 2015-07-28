@@ -10,10 +10,20 @@ public class BibliotecaApp {
         this.library = library;
     }
 
-    public boolean run() {
+    public void run() {
         menu.displayWelcomeMessage();
-        library.listAllBooks();
-        return true;
+        menu.displayOptions();
+        while (true) {
+            int option = menu.chooseOption();
+            switch (option) {
+                case 1:
+                    library.listAllBooks();
+                    break;
+                case 2:
+                    System.exit(0);
+                default:
+                    menu.displayErrorMessage();
+            }
+        }
     }
-
 }
