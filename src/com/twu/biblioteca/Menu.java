@@ -17,6 +17,7 @@ public class Menu {
         optionsList += "** MAIN MENU **\n";
         optionsList += "================\n";
         optionsList += "1. List Books\n";
+        optionsList += "2. Check-Out Book\n";
         optionsList += "0. Quit\n";
 
         return optionsList;

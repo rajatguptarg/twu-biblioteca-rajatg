@@ -40,4 +40,8 @@ public class View {
     public void displayErrorMessage() {
         System.out.println("Invalid Option!");
     }
+
+    public void showStatusOfCheckOut() {
+        System.out.println("This feature is under maintenance..!!");
+    }
 }

@@ -19,6 +19,9 @@ public class BibliotecaApp {
                 case 1:
                     view.displayListOfBooks();
                     break;
+                case 2:
+                    view.showStatusOfCheckOut();
+                    break;
                 case 0:
                     System.exit(0);
                 default:

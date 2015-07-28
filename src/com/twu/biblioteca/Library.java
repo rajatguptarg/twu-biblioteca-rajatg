@@ -19,6 +19,10 @@ public class Library {
         listOfBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
     }
 
+    public boolean performCheckOut() {
+        return false;
+    }
+
     public List<String> listAllBooks() {
         List<String> books = new ArrayList<String>();
 

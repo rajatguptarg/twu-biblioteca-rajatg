@@ -26,6 +26,12 @@ public class LibraryTest {
         List<String> expectedList = new ArrayList<String>();
 
         assertEquals(expectedList, library.listAllBooks());
+    }
 
+    @Test
+    public void libraryShouldAbleToCheckOutBook() {
+        Library library = new Library();
+
+        assertEquals(false, library.performCheckOut());
     }
 }
