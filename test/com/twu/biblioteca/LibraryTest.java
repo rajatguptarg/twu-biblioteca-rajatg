@@ -1,17 +1,17 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-
-import static org.junit.Assert.assertArrayEquals;
+import org.mockito.Mockito;
 
 
 public class LibraryTest {
 
     @Test
-    public void shouldDisplayTheListOfBooks() {
-        Book book = new Book("My Book", "Rajat", "2010");
-        Library library = new Library(new Book[]{book});
+    public void libraryShouldPrintAllBooks() {
+        Library library = Mockito.mock(Library.class);
 
-        assertArrayEquals(new Book[]{book}, library.getBooks());
+        library.listAllBooks();
+
+        Mockito.verify(library).listAllBooks();
     }
 }

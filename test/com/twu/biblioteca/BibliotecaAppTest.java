@@ -11,7 +11,8 @@ public class BibliotecaAppTest {
     @Test
     public void bibliotecaAppShouldAbleToRun() {
         Menu menu = new Menu();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu);
+        Library library = new Library();
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
 
         assertEquals(true, bibliotecaApp.run());
     }
