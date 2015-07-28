@@ -14,6 +14,9 @@ public class View {
     }
 
     public void displayListOfBooks() {
+        System.out.println("+-----------+--------+----------------+");
+        System.out.println("| Book Name" + " | " + "Author" + " | " + "Year Published |");
+        System.out.println("+-----------+--------+----------------+");
         List<String> books;
         books = library.listAllBooks();
         for(String book : books) {

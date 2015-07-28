@@ -19,7 +19,7 @@ public class Library {
         List<String> books = new ArrayList<String>();
 
         for(Book book : listOfBooks) {
-            books.add((book.getBookName() + "\t" + book.getBookAuthor() + "\t" + book.getYearPublished()));
+            books.add(("| "+book.getBookName() + " | " + book.getBookAuthor() + " | " + book.getYearPublished()+" |"));
         }
 
         return books;
