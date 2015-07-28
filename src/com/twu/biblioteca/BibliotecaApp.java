@@ -2,12 +2,14 @@ package com.twu.biblioteca;
 
 
 public class BibliotecaApp {
+    private Menu menu;
 
-    public static void main(String[] args) {
-        System.out.println("Hello, world!");
+    public BibliotecaApp(Menu menu) {
+        this.menu = menu;
     }
 
     public boolean run() {
+        menu.displayWelcomeMessage();
         return true;
     }
 

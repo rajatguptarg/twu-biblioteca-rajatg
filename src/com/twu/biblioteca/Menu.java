@@ -8,7 +8,7 @@ public class Menu {
         this.option = 0;
     }
 
-    public String displayWelcomeMessage() {
-        return "HELLO..!! WELCOME TO BIBLIOTECA..!!";
+    public void displayWelcomeMessage() {
+        System.out.println("HELLO..!! WELCOME TO BIBLIOTECA..!!");
     }
 }
