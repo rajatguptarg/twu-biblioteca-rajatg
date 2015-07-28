@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+
 public class BibliotecaAppTest {
 
     @Test
@@ -12,5 +13,4 @@ public class BibliotecaAppTest {
 
         assertEquals(true, bibliotecaApp.run());
     }
-
 }
