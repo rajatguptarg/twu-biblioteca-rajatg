@@ -4,14 +4,16 @@ package com.twu.biblioteca;
 public class BibliotecaApp {
     private Menu menu;
     private Library library;
+    private View view;
 
-    public BibliotecaApp(Menu menu, Library library) {
+    public BibliotecaApp(Menu menu, Library library, View view) {
         this.menu = menu;
         this.library = library;
+        this.view = view;
     }
 
     public void run() {
-        menu.displayWelcomeMessage();
+        view.displayWelcomeMessage();
         menu.displayOptions();
         while (true) {
             int option = menu.chooseOption();

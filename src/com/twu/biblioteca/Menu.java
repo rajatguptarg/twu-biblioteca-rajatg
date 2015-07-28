@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-
 import java.util.Scanner;
+
 
 public class Menu {
     private int option;
@@ -10,8 +10,8 @@ public class Menu {
         this.option = 0;
     }
 
-    public void displayWelcomeMessage() {
-        System.out.println("HELLO..!! WELCOME TO BIBLIOTECA..!!");
+    public String returnWelcomeMessage() {
+        return "HELLO..!! WELCOME TO BIBLIOTECA..!!";
     }
 
     public void displayOptions() {
@@ -21,7 +21,7 @@ public class Menu {
 
     public int chooseOption() {
         Scanner scanner = new Scanner(System.in);
-        int option = Integer.parseInt(scanner.nextLine());
+        option = Integer.parseInt(scanner.nextLine());
         return option;
     }
 

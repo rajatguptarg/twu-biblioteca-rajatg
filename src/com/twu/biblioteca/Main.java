@@ -5,7 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
         Library library = new Library();
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library);
+        View view = new View();
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(menu, library, view);
 
         bibliotecaApp.run();
     }

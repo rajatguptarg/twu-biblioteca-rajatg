@@ -11,18 +11,18 @@
     </path>
 
     <target name="compile">
-        <javac srcdir="src" includeantruntime="false" destdir="build" classpathref="classpath"/>
-        <javac srcdir="test" includeantruntime="false" destdir="build" classpathref="classpath"/>
+        <javac srcdir="src;test" includeantruntime="false" destdir="build" classpathref="classpath"/>
     </target>
 
     <target name="runjunit" depends="compile">
         <junit haltonfailure="true" printsummary="true" showoutput="yes">
+            <test name="com.twu.biblioteca.ViewTest"/>
             <test name="com.twu.biblioteca.BibliotecaAppTest"/>
             <test name="com.twu.biblioteca.MenuTest"/>
             <test name="com.twu.biblioteca.BookTest"/>
             <test name="com.twu.biblioteca.LibraryTest"/>
             <classpath>
-                <pathelement location="out"/>
+                <pathelement location="build"/>
                 <path refid="classpath"/>
             </classpath>
             <formatter type="plain" usefile="false"/>

@@ -1,18 +1,17 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import org.mockito.Mockito;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class MenuTest {
 
     @Test
-    public void menuShouldDisplayTheWelcomeMessage() {
-        Menu menu = Mockito.mock(Menu.class);
+    public void menuShouldReturnTheDisplayMessage() {
+        Menu menu = new Menu();
+        String expectedWelcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!";
 
-        menu.displayWelcomeMessage();
-
-        Mockito.verify(menu).displayWelcomeMessage();
-
+        assertEquals(expectedWelcomeMessage, menu.returnWelcomeMessage());
     }
 }
