@@ -9,22 +9,22 @@ public class BookTest {
 
     @Test
     public void shouldReturnTheBookName() {
-        Book book = new Book();
+        Book book = new Book("My Book", "Rajat", "2015");
 
-        assertEquals("", book.getBookName());
+        assertEquals("My Book", book.getBookName());
     }
 
     @Test
     public void shouldReturnTheAuthorOfTheBook() {
-        Book book = new Book();
+        Book book = new Book("My Book", "Rajat", "2015");
 
-        assertEquals("", book.getBookAuthor());
+        assertEquals("Rajat", book.getBookAuthor());
     }
 
     @Test
     public void shouldReturnThePushingYearOfTheBook() {
-        Book book = new Book();
+        Book book = new Book("My Book", "Rajat", "2015");
 
-        assertEquals("", book.getYearPublished());
+        assertEquals("2015", book.getYearPublished());
     }
 }

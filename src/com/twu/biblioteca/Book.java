@@ -6,10 +6,10 @@ public class Book {
     private String bookAuthor;
     private String yearPublished;
 
-    public Book() {
-        this.bookName = "";
-        this.bookAuthor = "";
-        this.yearPublished = "";
+    public Book(String bookName, String bookAuthor, String yearPublished) {
+        this.bookName = bookName;
+        this.bookAuthor = bookAuthor;
+        this.yearPublished = yearPublished;
     }
 
     public String getBookName() {
