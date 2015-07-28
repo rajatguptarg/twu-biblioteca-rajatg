@@ -31,8 +31,7 @@ public class View {
 
     public int chooseOption() {
         Scanner scanner = new Scanner(System.in);
-        int optionNumber = Integer.parseInt(scanner.nextLine());
-        return optionNumber;
+        return Integer.parseInt(scanner.nextLine());
     }
 
     public void displayErrorMessage() {

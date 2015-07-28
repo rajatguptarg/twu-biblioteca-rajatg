@@ -10,19 +10,22 @@ public class BibliotecaApp {
 
     public void run() {
         view.displayWelcomeMessage();
-        view.displayAvailableOptionsToUser();
-
         while (true) {
+            view.displayAvailableOptionsToUser();
+            System.out.print("Choose Option: ");
             int option = view.chooseOption();
+
             switch (option) {
                 case 1:
                     view.displayListOfBooks();
                     break;
-                case 2:
+                case 0:
                     System.exit(0);
                 default:
                     view.displayErrorMessage();
+                    break;
             }
+
         }
     }
 }

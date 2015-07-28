@@ -12,7 +12,7 @@ public class Library {
     }
 
     public void addBookToLibrary() {
-        listOfBooks.add(new Book("r", "r", "1"));
+        listOfBooks.add(new Book("Great Rajat", "Gatsby", "2015"));
     }
 
     public List<String> listAllBooks() {

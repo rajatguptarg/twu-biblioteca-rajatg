@@ -25,7 +25,7 @@ public class ViewTest {
     public void shouldShowWelcomeMessage() {
         View view = new View();
         view.displayWelcomeMessage();
-        assertEquals("HELLO..!! WELCOME TO BIBLIOTECA..!!\n", outContent.toString());
+        assertEquals("HELLO..!! WELCOME TO BIBLIOTECA..!!\n\n", outContent.toString());
     }
 
     @Test

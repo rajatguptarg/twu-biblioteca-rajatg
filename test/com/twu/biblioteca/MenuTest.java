@@ -10,7 +10,7 @@ public class MenuTest {
     @Test
     public void menuShouldReturnTheDisplayMessage() {
         Menu menu = new Menu();
-        String expectedWelcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!";
+        String expectedWelcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!\n";
 
         assertEquals(expectedWelcomeMessage, menu.returnWelcomeMessage());
     }

@@ -9,12 +9,16 @@ public class Menu {
     }
 
     public String returnWelcomeMessage() {
-        return "HELLO..!! WELCOME TO BIBLIOTECA..!!";
+        return "HELLO..!! WELCOME TO BIBLIOTECA..!!\n";
     }
 
     public String returnTheOptionAvailableToUser() {
+        optionsList = "";
+        optionsList += "** MAIN MENU **\n";
+        optionsList += "================\n";
         optionsList += "1. List Books\n";
-        optionsList += "2. Quit\n";
+        optionsList += "0. Quit\n";
+
         return optionsList;
     }
 }
