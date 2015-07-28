@@ -1,31 +1,20 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
-
 
 public class Menu {
-    private int option;
+    private String optionsList;
 
     public Menu() {
-        this.option = 0;
+        this.optionsList = "";
     }
 
     public String returnWelcomeMessage() {
         return "HELLO..!! WELCOME TO BIBLIOTECA..!!";
     }
 
-    public void displayOptions() {
-        System.out.println("1. List Books");
-        System.out.println("2. Quit");
-    }
-
-    public int chooseOption() {
-        Scanner scanner = new Scanner(System.in);
-        option = Integer.parseInt(scanner.nextLine());
-        return option;
-    }
-
-    public void displayErrorMessage() {
-        System.out.println("Invalid Option!");
+    public String returnTheOptionAvailableToUser() {
+        optionsList += "1. List Books\n";
+        optionsList += "2. Quit\n";
+        return optionsList;
     }
 }
