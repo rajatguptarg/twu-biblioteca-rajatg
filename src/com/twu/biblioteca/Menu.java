@@ -7,7 +7,7 @@ public class Menu {
 
     public Menu() {
         this.optionsList = "";
-        this.welcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!\n";
+        this.welcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!";
     }
 
     public String returnWelcomeMessage() {
