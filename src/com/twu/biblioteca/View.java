@@ -48,5 +48,8 @@ public class View {
         if (result) {
             System.out.println("Book is successfully checked out..!!");
         }
+        else {
+            System.out.println("Sorry..!! Book is not available.");
+        }
     }
 }

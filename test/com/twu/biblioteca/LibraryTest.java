@@ -33,4 +33,20 @@ public class LibraryTest {
 
         assertNotEquals(null, library.searchBookByName("Great Rajat"));
     }
+
+    @Test
+    public void libraryShouldBeAbleToTellTheBookIsNotPresent() {
+        Library library = new Library();
+        library.addBookToLibrary();
+
+        assertEquals(null, library.searchBookByName("Hello"));
+    }
+
+    @Test
+    public void libraryShouldBeAbleToTellTheBookIsNotPresentDueToSpellingMistake() {
+        Library library = new Library();
+        library.addBookToLibrary();
+
+        assertEquals(null, library.searchBookByName("Great rajat"));
+    }
 }
