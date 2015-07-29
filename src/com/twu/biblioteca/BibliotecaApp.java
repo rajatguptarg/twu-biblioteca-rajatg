@@ -14,26 +14,28 @@ public class BibliotecaApp {
             view.displayAvailableOptionsToUser();
             System.out.print("Choose Option: ");
             int option = view.chooseOption();
+            executeOperation(option);
+        }
+    }
 
-            switch (option) {
-                case 1:
-                    view.displayListOfBooks();
-                    break;
-                case 2:
-                    System.out.print("Enter Name of Book: ");
-                    view.showStatusOfCheckOut();
-                    break;
-                case 3:
-                    System.out.print("Enter Name of Book: ");
-                    view.showReturnBookStatus();
-                    break;
-                case 0:
-                    System.exit(0);
-                default:
-                    view.displayErrorMessage();
-                    break;
-            }
-
+    void executeOperation(int option) {
+        switch (option) {
+            case 1:
+                view.displayListOfBooks();
+                break;
+            case 2:
+                System.out.print("Enter Name of Book: ");
+                view.showStatusOfCheckOut();
+                break;
+            case 3:
+                System.out.print("Enter Name of Book: ");
+                view.showReturnBookStatus();
+                break;
+            case 0:
+                System.exit(0);
+            default:
+                view.displayErrorMessage();
+                break;
         }
     }
 }
