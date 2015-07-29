@@ -34,7 +34,11 @@ public class View {
 
     public int chooseOption() {
         Scanner scanner = new Scanner(System.in);
-        return Integer.parseInt(scanner.nextLine());
+        try {
+            return Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
 
     public void displayErrorMessage() {
