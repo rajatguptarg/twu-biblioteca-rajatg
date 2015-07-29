@@ -2,9 +2,9 @@ package com.twu.biblioteca;
 
 
 public class Book {
-    private String bookName;
-    private String bookAuthor;
-    private String yearPublished;
+    String bookName;
+    String bookAuthor;
+    String yearPublished;
     private boolean checkoutStatus;
 
     public Book(String bookName, String bookAuthor, String yearPublished) {
@@ -18,15 +18,7 @@ public class Book {
         return checkoutStatus;
     }
 
-    public String getBookName() {
-        return bookName;
-    }
-
-    public String getBookAuthor() {
-        return bookAuthor;
-    }
-
-    public String getYearPublished() {
-        return yearPublished;
+    public void checkOut() {
+        checkoutStatus = true;
     }
 }

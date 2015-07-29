@@ -20,6 +20,7 @@ public class BibliotecaApp {
                     view.displayListOfBooks();
                     break;
                 case 2:
+                    System.out.print("Enter Name of Book: ");
                     view.showStatusOfCheckOut();
                     break;
                 case 0:

@@ -42,6 +42,11 @@ public class View {
     }
 
     public void showStatusOfCheckOut() {
-        System.out.println("This feature is under maintenance..!!");
+        Scanner scanner = new Scanner(System.in);
+        String nameOfBook = scanner.nextLine();
+        boolean result = library.performCheckOut(nameOfBook);
+        if (result) {
+            System.out.println("Book is successfully checked out..!!");
+        }
     }
 }

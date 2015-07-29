@@ -19,17 +19,36 @@ public class Library {
         listOfBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
     }
 
-    public boolean performCheckOut() {
-        return false;
+    public boolean performCheckOut(String nameOfBook) {
+        Book requiredBook = this.searchBookByName(nameOfBook);
+        if (requiredBook == null || requiredBook.isBookCheckedOuted()) {
+            return false;
+        }
+        else {
+            requiredBook.checkOut();
+            return true;
+        }
+    }
+
+    public Book searchBookByName(String nameOfBook) {
+        Book searchedBook = null;
+        for(Book book : listOfBooks) {
+            if (book.bookName.equals(nameOfBook)) {
+                searchedBook = book;
+                break;
+            }
+        }
+        return searchedBook;
     }
 
     public List<String> listAllBooks() {
         List<String> books = new ArrayList<String>();
 
         for(Book book : listOfBooks) {
-            books.add(("| "+book.getBookName() + " | " + book.getBookAuthor() + " | " + book.getYearPublished()+" |"));
+            if (!book.isBookCheckedOuted()) {
+                books.add(("| " + book.bookName + " | " + book.bookAuthor + " | " + book.yearPublished + " |"));
+            }
         }
-
         return books;
     }
 
