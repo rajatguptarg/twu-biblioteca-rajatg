@@ -58,7 +58,8 @@ public class Library {
 
         for(Book book : listOfBooks) {
             if (!book.isBookCheckedOuted()) {
-                books.add(("| " + book.bookName + " | " + book.bookAuthor + " | " + book.yearPublished + " |"));
+                String bookRecord = String.format("%-20s %-20s %-6s", book.bookName, book.bookAuthor, book.yearPublished);
+                books.add(bookRecord);
             }
         }
         return books;

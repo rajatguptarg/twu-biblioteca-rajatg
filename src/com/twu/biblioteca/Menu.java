@@ -3,18 +3,20 @@ package com.twu.biblioteca;
 
 public class Menu {
     private String optionsList;
+    private String welcomeMessage;
 
     public Menu() {
         this.optionsList = "";
+        this.welcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!\n";
     }
 
     public String returnWelcomeMessage() {
-        return "HELLO..!! WELCOME TO BIBLIOTECA..!!\n";
+        return welcomeMessage;
     }
 
     public String returnTheOptionAvailableToUser() {
         optionsList = "";
-        optionsList += "** MAIN MENU **\n";
+        optionsList += "\n** MAIN MENU **\n";
         optionsList += "================\n";
         optionsList += "1. List Books\n";
         optionsList += "2. Check-Out Book\n";
