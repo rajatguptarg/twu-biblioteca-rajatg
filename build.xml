@@ -10,6 +10,8 @@
         <fileset dir="${lib.dir}" includes="mockito-all-1.9.5.jar"/>
     </path>
 
+    <mkdir dir="build" />
+
     <target name="compile">
         <javac srcdir="src;test" includeantruntime="false" destdir="build" classpathref="classpath"/>
     </target>

@@ -1,11 +1,8 @@
 language: java
-install: java
 
 jdk:
-- oraclejdk7
 - openjdk7
 
 script:
-- jdk_switcher use oraclejdk7
 - ant compile
 - ant runjunit
