@@ -38,18 +38,31 @@ public class View {
     }
 
     public void displayErrorMessage() {
-        System.out.println("Invalid Option!");
+        System.out.println("Select a valid option!");
     }
 
     public void showStatusOfCheckOut() {
-        Scanner scanner = new Scanner(System.in);
-        String nameOfBook = scanner.nextLine();
-        boolean result = library.performCheckOut(nameOfBook);
-        if (result) {
-            System.out.println("Book is successfully checked out..!!");
+        String nameOfBook = getString();
+        if (library.performCheckOut(nameOfBook)) {
+            System.out.println("Thank you! Enjoy the book.");
         }
         else {
-            System.out.println("Sorry..!! Book is not available.");
+            System.out.println("That book is not available.");
+        }
+    }
+
+    private String getString() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public void showReturnBookStatus() {
+        String nameOfBook = getString();
+        if (library.performReturnBook(nameOfBook)) {
+            System.out.println("Thank you for returning the book.");
+        }
+        else {
+            System.out.println("That is not a valid book to return.");
         }
     }
 }

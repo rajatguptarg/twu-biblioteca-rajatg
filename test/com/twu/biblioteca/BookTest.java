@@ -18,6 +18,17 @@ public class BookTest {
         Book book = new Book("My Book", "Rajat", "2010");
 
         book.checkOut();
+
         assertEquals(true, book.isBookCheckedOuted());
+    }
+
+    @Test
+    public void shouldBeAbleToCheckInBook() throws Exception {
+        Book book = new Book("My Book", "Rajat", "2010");
+
+        book.checkOut();
+        book.checkIn();
+
+        assertEquals(false, book.isBookCheckedOuted());
     }
 }

@@ -23,6 +23,10 @@ public class BibliotecaApp {
                     System.out.print("Enter Name of Book: ");
                     view.showStatusOfCheckOut();
                     break;
+                case 3:
+                    System.out.print("Enter Name of Book: ");
+                    view.showReturnBookStatus();
+                    break;
                 case 0:
                     System.exit(0);
                 default:

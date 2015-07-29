@@ -21,4 +21,8 @@ public class Book {
     public void checkOut() {
         checkoutStatus = true;
     }
+
+    public void checkIn() {
+        checkoutStatus = false;
+    }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Library {
     private List<Book> listOfBooks = new ArrayList<Book>();
+    private List<Book> checkedOutBooks = new ArrayList<Book>();
 
     public Library() {
         this.listOfBooks = new ArrayList<Book>();
@@ -26,7 +27,18 @@ public class Library {
         }
         else {
             requiredBook.checkOut();
-            return true;
+            return checkedOutBooks.add(requiredBook);
+        }
+    }
+
+    public boolean performReturnBook(String nameOfBook) {
+        Book requiredBook = this.searchBookByName(nameOfBook);
+        if (requiredBook == null || (!checkedOutBooks.contains(requiredBook))) {
+            return false;
+        }
+        else {
+            requiredBook.checkIn();
+            return checkedOutBooks.remove(requiredBook);
         }
     }
 

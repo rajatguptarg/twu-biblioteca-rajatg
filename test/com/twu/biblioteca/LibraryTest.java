@@ -19,7 +19,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void libraryShouldAbleToCheckOutBook() {
+    public void libraryShouldNotBedAbleToCheckOutBookIfBookIsNotPresent() {
         Library library = new Library();
         String nameOfBook="my book";
 
@@ -48,5 +48,15 @@ public class LibraryTest {
         library.addBookToLibrary();
 
         assertEquals(null, library.searchBookByName("Great rajat"));
+    }
+
+    @Test
+    public void libraryShouldBeAbleToTakeReturnedBook() {
+        Library library = new Library();
+
+        library.addBookToLibrary();
+        library.performCheckOut("Great Rajat");
+
+        assertEquals(true, library.performReturnBook("Great Rajat"));
     }
 }
