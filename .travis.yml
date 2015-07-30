@@ -6,3 +6,10 @@ jdk:
 script:
 - ant compile
 - ant runjunit
+
+after_success:
+  coveralls
+
+notifications:
+  email:
+    - rajat.gupta712@gmail.com
