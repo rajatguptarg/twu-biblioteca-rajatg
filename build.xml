@@ -4,6 +4,8 @@
 
     <property name="lib.dir" value="lib"/>
 
+    <mkdir dir="build" />
+
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="junit-4.11.jar"/>
         <fileset dir="${lib.dir}" includes="hamcrest-core-1.3.jar"/>
