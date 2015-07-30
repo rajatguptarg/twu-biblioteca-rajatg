@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -24,7 +23,9 @@ public class ViewTest {
     @Test
     public void shouldShowWelcomeMessage() {
         View view = new View();
+
         view.displayWelcomeMessage();
+
         assertEquals("HELLO..!! WELCOME TO BIBLIOTECA..!!\n", outContent.toString());
     }
 
@@ -35,6 +36,15 @@ public class ViewTest {
         Mockito.when(view.chooseOption()).thenReturn(1);
 
         assertEquals(1, view.chooseOption());
+    }
+
+    @Test
+    public void shouldBeAbleToDisplayErrorMessage() {
+        View view = new View();
+
+        view.displayErrorMessage();
+
+        assertEquals("Select a valid option!\n", outContent.toString());
     }
 
     @After

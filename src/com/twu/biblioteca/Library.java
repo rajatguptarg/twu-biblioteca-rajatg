@@ -20,7 +20,7 @@ public class Library {
         listOfBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
     }
 
-    public boolean performCheckOut(String nameOfBook) {
+    public boolean performCheckOutBook(String nameOfBook) {
         Book requiredBook = this.searchBookByName(nameOfBook);
         if (requiredBook == null || requiredBook.isBookCheckedOuted()) {
             return false;

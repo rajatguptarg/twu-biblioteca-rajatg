@@ -12,7 +12,6 @@ public class BibliotecaApp {
         view.displayWelcomeMessage();
         while (true) {
             view.displayAvailableOptionsToUser();
-            System.out.print("Choose Option: ");
             int option = view.chooseOption();
             executeOperation(option);
         }
@@ -24,11 +23,9 @@ public class BibliotecaApp {
                 view.displayListOfBooks();
                 break;
             case 2:
-                System.out.print("Enter Name of Book: ");
                 view.showStatusOfCheckOut();
                 break;
             case 3:
-                System.out.print("Enter Name of Book: ");
                 view.showReturnBookStatus();
                 break;
             case 0:
