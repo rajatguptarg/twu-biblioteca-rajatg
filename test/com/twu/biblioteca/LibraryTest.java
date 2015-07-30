@@ -23,7 +23,7 @@ public class LibraryTest {
         Library library = new Library();
         String nameOfBook="my book";
 
-        assertEquals(false, library.performCheckOut(nameOfBook));
+        assertEquals(false, library.performCheckOutBook(nameOfBook));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class LibraryTest {
         Library library = new Library();
 
         library.addBookToLibrary();
-        library.performCheckOut("Great Rajat");
+        library.performCheckOutBook("Great Rajat");
 
         assertEquals(true, library.performReturnBook("Great Rajat"));
     }

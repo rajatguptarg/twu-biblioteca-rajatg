@@ -48,7 +48,7 @@ public class View {
 
     public void showStatusOfCheckOut() {
         String nameOfBook = getString();
-        if (library.performCheckOut(nameOfBook)) {
+        if (library.performCheckOutBook(nameOfBook)) {
             System.out.println("Thank you! Enjoy the book.");
         }
         else {
