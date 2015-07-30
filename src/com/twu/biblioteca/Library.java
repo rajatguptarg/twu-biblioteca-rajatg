@@ -65,20 +65,4 @@ public class Library {
         }
         return books;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Library library = (Library) o;
-
-        return !(listOfBooks != null ? !listOfBooks.equals(library.listOfBooks) : library.listOfBooks != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        return listOfBooks != null ? listOfBooks.hashCode() : 0;
-    }
 }
