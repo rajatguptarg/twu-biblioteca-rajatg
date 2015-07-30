@@ -14,14 +14,17 @@ public class View {
         library.addBookToLibrary();
     }
 
-    public void displayListOfBooks() {
-        String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
-        System.out.println("\n"+header);
-        System.out.println("==================================================");
-        List<String> books;
-        books = library.listAllBooks();
-        for(String book : books) {
-            System.out.println(book);
+    private String getString() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public int chooseOption() {
+        System.out.print("Choose Option: ");
+        try {
+            return Integer.parseInt(getString());
+        } catch (NumberFormatException e) {
+            return -1;
         }
     }
 
@@ -33,18 +36,19 @@ public class View {
         System.out.println(menu.returnTheOptionAvailableToUser());
     }
 
-    public int chooseOption() {
-        System.out.print("Choose Option: ");
-        Scanner scanner = new Scanner(System.in);
-        try {
-            return Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            return -1;
-        }
-    }
-
     public void displayErrorMessage() {
         System.out.println("Select a valid option!");
+    }
+
+    public void displayListOfBooks() {
+        String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
+        System.out.println("\n"+header);
+        System.out.println("==================================================");
+        List<String> books;
+        books = library.listAllBooks();
+        for(String book : books) {
+            System.out.println(book);
+        }
     }
 
     public void showStatusOfCheckOut() {
@@ -56,11 +60,6 @@ public class View {
         else {
             System.out.println("That book is not available.");
         }
-    }
-
-    private String getString() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
     }
 
     public void showReturnBookStatus() {
