@@ -34,6 +34,7 @@ public class View {
     }
 
     public int chooseOption() {
+        System.out.print("Choose Option: ");
         Scanner scanner = new Scanner(System.in);
         try {
             return Integer.parseInt(scanner.nextLine());
@@ -47,6 +48,7 @@ public class View {
     }
 
     public void showStatusOfCheckOut() {
+        System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
         if (library.performCheckOutBook(nameOfBook)) {
             System.out.println("Thank you! Enjoy the book.");
@@ -62,6 +64,7 @@ public class View {
     }
 
     public void showReturnBookStatus() {
+        System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
         if (library.performReturnBook(nameOfBook)) {
             System.out.println("Thank you for returning the book.");
