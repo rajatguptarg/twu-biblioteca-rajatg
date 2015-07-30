@@ -25,6 +25,8 @@ Requirements
 
 **[5]** Hamcrest 1.3
 
+**[6]** Mockito 1.9.5
+
 How to Compile Project
 =======================
 
