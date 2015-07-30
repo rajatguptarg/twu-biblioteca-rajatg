@@ -33,5 +33,6 @@ To run your Application, there are two ways:
 [1] Open this project in IntelliJ, then run Main class by pressing Options+Shift+F10.
 
 [2] Go to project directory from shell and type following command in shell:
+    
     $ ant run
     
