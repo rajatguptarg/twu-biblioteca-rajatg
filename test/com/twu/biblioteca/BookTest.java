@@ -14,7 +14,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldBeAbleToCheckOutBook() throws Exception {
+    public void shouldBeAbleToCheckOutBook() {
         Book book = new Book("My Book", "Rajat", "2010");
 
         book.checkOut();
@@ -23,7 +23,7 @@ public class BookTest {
     }
 
     @Test
-    public void shouldBeAbleToCheckInBook() throws Exception {
+    public void shouldBeAbleToCheckInBook() {
         Book book = new Book("My Book", "Rajat", "2010");
 
         book.checkOut();
