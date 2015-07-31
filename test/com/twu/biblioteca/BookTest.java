@@ -7,28 +7,23 @@ import static org.junit.Assert.*;
 public class BookTest {
 
     @Test
-    public void shouldReturnTheCheckOutStatusOfTheBook() {
+    public void shouldReturnNameOfTheBook() {
         Book book = new Book("My Book", "Rajat", "2015");
 
-        assertEquals(false, book.isBookCheckedOuted());
+        assertEquals("My Book", book.getBookName());
     }
 
     @Test
-    public void shouldBeAbleToCheckOutBook() {
-        Book book = new Book("My Book", "Rajat", "2010");
+    public void shouldReturnTheAuthorOfTheBook() {
+        Book book = new Book("My Book", "Rajat", "2015");
 
-        book.checkOut();
-
-        assertEquals(true, book.isBookCheckedOuted());
+        assertEquals("Rajat", book.getBookAuthor());
     }
 
     @Test
-    public void shouldBeAbleToCheckInBook() {
-        Book book = new Book("My Book", "Rajat", "2010");
+    public void shouldReturnThePublishedYearOfTheBook() {
+        Book book = new Book("My Book", "Rajat", "2015");
 
-        book.checkOut();
-        book.checkIn();
-
-        assertEquals(false, book.isBookCheckedOuted());
+        assertEquals("2015", book.getYearPublished());
     }
 }

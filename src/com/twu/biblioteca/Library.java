@@ -5,47 +5,49 @@ import java.util.List;
 
 
 public class Library {
-    private List<Book> listOfBooks = new ArrayList<Book>();
+    private List<Book> availableBooks = new ArrayList<Book>();
     private List<Book> checkedOutBooks = new ArrayList<Book>();
 
     public Library() {
-        this.listOfBooks = new ArrayList<Book>();
+        this.availableBooks = new ArrayList<Book>();
     }
 
     public void addBookToLibrary() {
-        listOfBooks.add(new Book("Great Rajat", "Gatsby", "2015"));
-        listOfBooks.add(new Book("Incredible Rajat", "Tyrion Lannister", "2010"));
-        listOfBooks.add(new Book("Have Fun", "Rajat", "2012"));
-        listOfBooks.add(new Book("I know nothing", "Jon Snow", "2011"));
-        listOfBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
+        availableBooks.add(new Book("Great Rajat", "Gatsby", "2015"));
+        availableBooks.add(new Book("Incredible Rajat", "Tyrion Lannister", "2010"));
+        availableBooks.add(new Book("Have Fun", "Rajat", "2012"));
+        availableBooks.add(new Book("I know nothing", "Jon Snow", "2011"));
+        availableBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
     }
 
     public boolean performCheckOutBook(String nameOfBook) {
-        Book requiredBook = this.searchBookByName(nameOfBook);
-        if (requiredBook == null || requiredBook.isBookCheckedOuted()) {
+        Book requiredBook = this.searchBookByName(nameOfBook, availableBooks);
+        if (requiredBook == null || (checkedOutBooks.contains(requiredBook))) {
             return false;
         }
-        else {
-            requiredBook.checkOut();
-            return checkedOutBooks.add(requiredBook);
-        }
+        return checkOut(requiredBook);
     }
 
     public boolean performReturnBook(String nameOfBook) {
-        Book requiredBook = this.searchBookByName(nameOfBook);
-        if (requiredBook == null || (!checkedOutBooks.contains(requiredBook))) {
+        Book requiredBook = this.searchBookByName(nameOfBook, checkedOutBooks);
+        if (requiredBook == null || (availableBooks.contains(requiredBook))) {
             return false;
         }
-        else {
-            requiredBook.checkIn();
-            return checkedOutBooks.remove(requiredBook);
-        }
+        return checkIn(requiredBook);
     }
 
-    public Book searchBookByName(String nameOfBook) {
+    private boolean checkOut(Book book) {
+        return (checkedOutBooks.add(book) && availableBooks.remove(book));
+    }
+
+    private boolean checkIn(Book book) {
+        return (checkedOutBooks.remove(book) && availableBooks.add(book));
+    }
+
+    private Book searchBookByName(String nameOfBook, List<Book> booksList) {
         Book searchedBook = null;
-        for(Book book : listOfBooks) {
-            if (book.bookName.equals(nameOfBook)) {
+        for(Book book : booksList) {
+            if (book.getBookName().equals(nameOfBook)) {
                 searchedBook = book;
                 break;
             }
@@ -55,13 +57,11 @@ public class Library {
 
     public List<String> listAllBooks() {
         List<String> books = new ArrayList<String>();
+        for(Book book : availableBooks) {
+            String bookRecord = String.format("%-20s %-20s %-6s", book.getBookName(),
+                    book.getBookAuthor(), book.getYearPublished());
+            books.add(bookRecord);
 
-        for(Book book : listOfBooks) {
-            if (!book.isBookCheckedOuted()) {
-                String bookRecord = String.format("%-20s %-20s %-6s", book.bookName,
-                        book.bookAuthor, book.yearPublished);
-                books.add(bookRecord);
-            }
         }
         return books;
     }

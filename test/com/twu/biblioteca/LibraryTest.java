@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 
 public class LibraryTest {
@@ -24,30 +23,6 @@ public class LibraryTest {
         String nameOfBook="my book";
 
         assertEquals(false, library.performCheckOutBook(nameOfBook));
-    }
-
-    @Test
-    public void libraryShouldBeAbleToTellTheBookIsPresent() {
-        Library library = new Library();
-        library.addBookToLibrary();
-
-        assertNotEquals(null, library.searchBookByName("Great Rajat"));
-    }
-
-    @Test
-    public void libraryShouldBeAbleToTellTheBookIsNotPresent() {
-        Library library = new Library();
-        library.addBookToLibrary();
-
-        assertEquals(null, library.searchBookByName("Hello"));
-    }
-
-    @Test
-    public void libraryShouldBeAbleToTellTheBookIsNotPresentDueToSpellingMistake() {
-        Library library = new Library();
-        library.addBookToLibrary();
-
-        assertEquals(null, library.searchBookByName("Great rajat"));
     }
 
     @Test
