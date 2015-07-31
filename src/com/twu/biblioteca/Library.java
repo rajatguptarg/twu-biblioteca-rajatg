@@ -47,7 +47,7 @@ public class Library {
     private Book searchBookByName(String nameOfBook, List<Book> booksList) {
         Book searchedBook = null;
         for(Book book : booksList) {
-            if (book.getBookName().equals(nameOfBook)) {
+            if (book.hasTitle(nameOfBook)) {
                 searchedBook = book;
                 break;
             }

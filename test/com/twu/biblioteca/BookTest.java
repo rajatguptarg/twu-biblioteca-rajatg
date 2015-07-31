@@ -26,4 +26,11 @@ public class BookTest {
 
         assertEquals("2015", book.getYearPublished());
     }
+
+    @Test
+    public void shouldReturnTrueIfTitleIsMatched() {
+        Book book = new Book("My Book", "Rajat", "2015");
+
+        assertEquals(true, book.hasTitle("My Book"));
+    }
 }

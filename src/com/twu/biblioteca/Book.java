@@ -23,4 +23,8 @@ public class Book {
     public String getYearPublished() {
         return yearPublished;
     }
+
+    public boolean hasTitle(String title) {
+        return bookName.equalsIgnoreCase(title);
+    }
 }
