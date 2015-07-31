@@ -45,7 +45,7 @@ public class Library {
     public Book searchBookByName(String nameOfBook) {
         Book searchedBook = null;
         for(Book book : listOfBooks) {
-            if (book.bookName.equals(nameOfBook)) {
+            if (book.getBookName().equals(nameOfBook)) {
                 searchedBook = book;
                 break;
             }
@@ -58,8 +58,8 @@ public class Library {
 
         for(Book book : listOfBooks) {
             if (!book.isBookCheckedOuted()) {
-                String bookRecord = String.format("%-20s %-20s %-6s", book.bookName,
-                        book.bookAuthor, book.yearPublished);
+                String bookRecord = String.format("%-20s %-20s %-6s", book.getBookName(),
+                        book.getBookAuthor(), book.getYearPublished());
                 books.add(bookRecord);
             }
         }
