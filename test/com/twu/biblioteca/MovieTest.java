@@ -42,9 +42,16 @@ public class MovieTest {
     }
 
     @Test
-    public void shouldBeAbleToMatchItsName() {
+    public void shouldBeAbleToMatchItsNameWithCaseSensitivity() {
         Movie movie = new Movie("Kill Bill", "2010", "John", "4.5");
 
         assertEquals(true, movie.hasName("Kill Bill"));
+    }
+
+    @Test
+    public void shouldBeAbleToMatchItsNameWithOutCaseSensitivity() {
+        Movie movie = new Movie("Kill Bill", "2010", "John", "4.5");
+
+        assertEquals(true, movie.hasName("kill bill"));
     }
 }
