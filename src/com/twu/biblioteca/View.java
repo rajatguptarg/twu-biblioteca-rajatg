@@ -104,5 +104,8 @@ public class View {
         if (movieSection.performReturnMovie(nameOfMovie)) {
             System.out.println("Thank you for returning the movie.");
         }
+        else {
+            System.out.println("That is not valid movie to return.");
+        }
     }
 }
