@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Library {
+public class BookSection {
     private List<Book> availableBooks;
     private List<Book> checkedOutBooks;
     private List<Movie> availableMovies;
 
-    public Library() {
+    public BookSection() {
         this.availableBooks = new ArrayList<Book>();
         this.checkedOutBooks = new ArrayList<Book>();
         this.availableMovies = new ArrayList<Movie>();

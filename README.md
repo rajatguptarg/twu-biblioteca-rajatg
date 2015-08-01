@@ -3,13 +3,13 @@
 Biblioteca
 ===========
 
-This is Library Management System which is used to manage the library operations. The operations are following:
+This is Library Management System which is used to manage the bookSection operations. The operations are following:
 
 **[1]** List All Books from Library
 
-**[2]** Check Out books from library
+**[2]** Check Out books from bookSection
 
-**[3]** Return Books to library
+**[3]** Return Books to bookSection
 
 **[4]** Exit from application
 

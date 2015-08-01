@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class View {
     private Menu menu;
-    private Library library;
+    private BookSection bookSection;
 
     public View() {
         this.menu = new Menu();
-        this.library = new Library();
-        library.addBookToLibrary();
-        library.addMovieToLibrary();
+        this.bookSection = new BookSection();
+        bookSection.addBookToLibrary();
+        bookSection.addMovieToLibrary();
     }
 
     private String getString() {
@@ -46,7 +46,7 @@ public class View {
         System.out.println("\n"+header);
         System.out.println("==================================================");
         List<Book> books;
-        books = library.listAllBooks();
+        books = bookSection.listAllBooks();
         for (Book book : books) {
             System.out.println(book.toString());
         }
@@ -57,7 +57,7 @@ public class View {
         System.out.println("\n" + header);
         System.out.println("==========================================================");
         List<Movie> movies;
-        movies = library.listAllMovies();
+        movies = bookSection.listAllMovies();
         for (Movie movie : movies) {
             System.out.println(movie.toString());
         }
@@ -66,7 +66,7 @@ public class View {
     public void showStatusOfCheckOut() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (library.performCheckOutBook(nameOfBook)) {
+        if (bookSection.performCheckOutBook(nameOfBook)) {
             System.out.println("Thank you! Enjoy the book.");
         }
         else {
@@ -77,7 +77,7 @@ public class View {
     public void showReturnBookStatus() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (library.performReturnBook(nameOfBook)) {
+        if (bookSection.performReturnBook(nameOfBook)) {
             System.out.println("Thank you for returning the book.");
         }
         else {
