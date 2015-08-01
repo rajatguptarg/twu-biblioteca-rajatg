@@ -12,4 +12,11 @@ public class MovieTest {
 
         assertEquals("Kill Bill", movie.getMovieName());
     }
+
+    @Test
+    public void shouldReturnTheReleasingYearOfTeMovie() {
+        Movie movie = new Movie("Kill Bill", "2010", "John", "Unrated");
+
+        assertEquals("2010", movie.getYearReleased());
+    }
 }

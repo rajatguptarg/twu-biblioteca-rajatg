@@ -16,4 +16,8 @@ public class Movie {
     public String getMovieName() {
         return movieName;
     }
+    
+    public String getYearReleased() {
+        return yearReleased;
+    }
 }
