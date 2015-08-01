@@ -16,4 +16,12 @@ public class MovieSectionTest {
 
         assertEquals(true, totalMovies > 0);
     }
+
+    @Test
+    public void shouldBeAbleToCheckOutMovie() {
+        MovieSection movieSection = new MovieSection();
+        String nameOfMovie = "my movie";
+
+        assertEquals(false, movieSection.performCheckOutMovie(nameOfMovie));
+    }
 }

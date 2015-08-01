@@ -25,6 +25,7 @@ public class MenuTest {
                 "2. Check-Out Book\n" +
                 "3. Return Book\n" +
                 "4. List Movies\n" +
+                "5. Check-Out Movie\n" +
                 "0. Quit\n";
 
         assertEquals(expectedOptions, menu.toString());

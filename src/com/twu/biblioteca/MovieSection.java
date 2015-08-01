@@ -5,9 +5,11 @@ import java.util.List;
 
 public class MovieSection {
     private List<Movie> availableMovies;
+    private List<Movie> checkedOutMovies;
 
     public MovieSection() {
         availableMovies = new ArrayList<Movie>();
+        checkedOutMovies = new ArrayList<Movie>();
     }
 
     public void addMovieToLibrary() {
@@ -25,5 +27,28 @@ public class MovieSection {
             movies.add(movie);
         }
         return movies;
+    }
+
+    public boolean performCheckOutMovie(String nameOfMovie) {
+        Movie requiredMovie = this.searchMovieByName(nameOfMovie);
+        if (requiredMovie == null || (checkedOutMovies.contains(requiredMovie))) {
+            return false;
+        }
+        return checkOutMovie(requiredMovie);
+    }
+
+    private boolean checkOutMovie(Movie movie) {
+        return (checkedOutMovies.add(movie) && availableMovies.remove(movie));
+    }
+
+    private Movie searchMovieByName(String nameOfMovie) {
+        Movie searchedMovie = null;
+        for (Movie movie : availableMovies) {
+            if (movie.hasName(nameOfMovie)) {
+                searchedMovie = movie;
+                break;
+            }
+        }
+        return searchedMovie;
     }
 }

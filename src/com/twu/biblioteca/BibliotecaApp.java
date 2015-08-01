@@ -23,13 +23,16 @@ public class BibliotecaApp {
                 view.displayListOfBooks();
                 break;
             case 2:
-                view.showStatusOfCheckOut();
+                view.showStatusOfCheckOutBook();
                 break;
             case 3:
                 view.showReturnBookStatus();
                 break;
             case 4:
                 view.displayListOfMovies();
+                break;
+            case 5:
+                view.showStatusOfCheckOutMovie();
                 break;
             case 0:
                 System.exit(0);
