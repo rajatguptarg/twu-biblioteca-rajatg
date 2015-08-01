@@ -82,6 +82,9 @@ public class View {
         if (movieSection.performCheckOutMovie(nameOfMovie)) {
             System.out.println("Thank you! Enjoy the movie.");
         }
+        else {
+            System.out.println("That movie is not available.");
+        }
     }
 
     public void showReturnBookStatus() {
