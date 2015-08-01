@@ -34,6 +34,9 @@ public class BibliotecaApp {
             case 5:
                 view.showStatusOfCheckOutMovie();
                 break;
+            case 6:
+                view.showReturnMovieStatus();
+                break;
             case 0:
                 System.exit(0);
             default:

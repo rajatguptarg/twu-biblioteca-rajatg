@@ -97,4 +97,12 @@ public class View {
             System.out.println("That is not a valid book to return.");
         }
     }
+
+    public void showReturnMovieStatus() {
+        System.out.print("Enter Name of Movie: ");
+        String nameOfMovie = getString();
+        if (movieSection.performReturnMovie(nameOfMovie)) {
+            System.out.println("Thank you for returning the movie.");
+        }
+    }
 }

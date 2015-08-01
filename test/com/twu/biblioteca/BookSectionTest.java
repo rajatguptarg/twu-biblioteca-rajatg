@@ -18,7 +18,7 @@ public class BookSectionTest {
     }
 
     @Test
-    public void libraryShouldNotBedAbleToCheckOutBookIfBookIsNotPresent() {
+    public void shouldNotBedAbleToCheckOutBookIfBookIsNotPresent() {
         BookSection bookSection = new BookSection();
         String nameOfBook="my book";
 
@@ -26,7 +26,7 @@ public class BookSectionTest {
     }
 
     @Test
-    public void libraryShouldBeAbleToTakeReturnedBook() {
+    public void shouldBeAbleToTakeReturnedBook() {
         BookSection bookSection = new BookSection();
 
         bookSection.addBookToLibrary();

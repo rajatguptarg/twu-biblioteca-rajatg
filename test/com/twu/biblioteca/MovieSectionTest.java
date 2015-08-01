@@ -18,10 +18,20 @@ public class MovieSectionTest {
     }
 
     @Test
-    public void shouldBeAbleToCheckOutMovie() {
+    public void shouldNotBeAbleToCheckOutMovieIfMovieIsNotPresent() {
         MovieSection movieSection = new MovieSection();
         String nameOfMovie = "my movie";
 
         assertEquals(false, movieSection.performCheckOutMovie(nameOfMovie));
+    }
+
+    @Test
+    public void shouldBeAbleToTakeReturnedMovies() {
+        MovieSection movieSection = new MovieSection();
+
+        movieSection.addMovieToLibrary();
+        movieSection.performCheckOutMovie("XXX");
+
+        assertEquals(true, movieSection.performReturnMovie("XXX"));
     }
 }

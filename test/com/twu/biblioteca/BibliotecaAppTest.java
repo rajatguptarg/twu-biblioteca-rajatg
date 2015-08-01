@@ -57,6 +57,16 @@ public class BibliotecaAppTest {
     }
 
     @Test
+    public void applicationShouldBeAbleToPerformReturnMovies() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+
+        bibliotecaApp.executeOperation(6);
+
+        Mockito.verify(view).showReturnMovieStatus();
+    }
+
+    @Test
     public void applicationShouldBeAbleToDisplayErrorMessage() {
         View view = Mockito.mock(View.class);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
