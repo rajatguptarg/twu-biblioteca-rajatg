@@ -24,4 +24,8 @@ public class Movie {
     public String getDirectorName() {
         return directorName;
     }
+
+    public String getMovieRating() {
+        return movieRating;
+    }
 }

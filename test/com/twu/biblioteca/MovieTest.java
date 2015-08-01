@@ -26,4 +26,18 @@ public class MovieTest {
 
         assertEquals("John", movie.getDirectorName());
     }
+
+    @Test
+    public void shouldReturnTheRatingOfMovieAsUnrated() {
+        Movie movie = new Movie("Kill Bill", "2010", "John", "Unrated");
+
+        assertEquals("Unrated", movie.getMovieRating());
+    }
+
+    @Test
+    public void shouldReturnTheRatingOfMovie() {
+        Movie movie = new Movie("Kill Bill", "2010", "John", "9.2");
+
+        assertEquals("9.2", movie.getMovieRating());
+    }
 }
