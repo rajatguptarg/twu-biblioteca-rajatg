@@ -65,7 +65,7 @@ public class View {
         }
     }
 
-    public void showStatusOfCheckOut() {
+    public void showStatusOfCheckOutBook() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
         if (bookSection.performCheckOutBook(nameOfBook)) {
@@ -73,6 +73,17 @@ public class View {
         }
         else {
             System.out.println("That book is not available.");
+        }
+    }
+
+    public void showStatusOfCheckOutMovie() {
+        System.out.print("Enter Name of Movie: ");
+        String nameOfMovie = getString();
+        if (movieSection.performCheckOutMovie(nameOfMovie)) {
+            System.out.println("Thank you! Enjoy the movie.");
+        }
+        else {
+            System.out.println("That movie is not available.");
         }
     }
 
@@ -84,6 +95,17 @@ public class View {
         }
         else {
             System.out.println("That is not a valid book to return.");
+        }
+    }
+
+    public void showReturnMovieStatus() {
+        System.out.print("Enter Name of Movie: ");
+        String nameOfMovie = getString();
+        if (movieSection.performReturnMovie(nameOfMovie)) {
+            System.out.println("Thank you for returning the movie.");
+        }
+        else {
+            System.out.println("That is not valid movie to return.");
         }
     }
 }

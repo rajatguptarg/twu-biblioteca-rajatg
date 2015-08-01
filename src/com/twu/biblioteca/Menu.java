@@ -23,6 +23,8 @@ public class Menu {
         optionsList += "2. Check-Out Book\n";
         optionsList += "3. Return Book\n";
         optionsList += "4. List Movies\n";
+        optionsList += "5. Check-Out Movie\n";
+        optionsList += "6. Return Movie\n";
         optionsList += "0. Quit\n";
 
         return optionsList;

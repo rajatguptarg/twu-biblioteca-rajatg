@@ -26,7 +26,7 @@ public class BookSection {
         if (requiredBook == null || (checkedOutBooks.contains(requiredBook))) {
             return false;
         }
-        return checkOut(requiredBook);
+        return checkOutBook(requiredBook);
     }
 
     public boolean performReturnBook(String nameOfBook) {
@@ -34,14 +34,14 @@ public class BookSection {
         if (requiredBook == null || (availableBooks.contains(requiredBook))) {
             return false;
         }
-        return checkIn(requiredBook);
+        return checkInBook(requiredBook);
     }
 
-    private boolean checkOut(Book book) {
+    private boolean checkOutBook(Book book) {
         return (checkedOutBooks.add(book) && availableBooks.remove(book));
     }
 
-    private boolean checkIn(Book book) {
+    private boolean checkInBook(Book book) {
         return (checkedOutBooks.remove(book) && availableBooks.add(book));
     }
 

@@ -17,23 +17,53 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void applicationShouldBeAbleToPerformCheckout() {
+    public void applicationShouldBeAbleToPerformCheckoutBook() {
         View view = Mockito.mock(View.class);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
 
         bibliotecaApp.executeOperation(2);
 
-        Mockito.verify(view).showStatusOfCheckOut();
+        Mockito.verify(view).showStatusOfCheckOutBook();
     }
 
     @Test
-    public void applicationShouldBeAbleToPerformReturn() {
+    public void applicationShouldBeAbleToPerformReturnBook() {
         View view = Mockito.mock(View.class);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
 
         bibliotecaApp.executeOperation(3);
 
         Mockito.verify(view).showReturnBookStatus();
+    }
+
+    @Test
+    public void applicationShouldBeAbleToListAllMovies() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+
+        bibliotecaApp.executeOperation(4);
+
+        Mockito.verify(view).displayListOfMovies();
+    }
+
+    @Test
+    public void applicationShouldBeAbleToPerformCheckoutMovies() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+
+        bibliotecaApp.executeOperation(5);
+
+        Mockito.verify(view).showStatusOfCheckOutMovie();
+    }
+
+    @Test
+    public void applicationShouldBeAbleToPerformReturnMovies() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+
+        bibliotecaApp.executeOperation(6);
+
+        Mockito.verify(view).showReturnMovieStatus();
     }
 
     @Test
