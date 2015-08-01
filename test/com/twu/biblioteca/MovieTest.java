@@ -40,4 +40,11 @@ public class MovieTest {
 
         assertEquals("9.2", movie.getMovieRating());
     }
+
+    @Test
+    public void shouldBeAbleToMatchItsName() {
+        Movie movie = new Movie("Kill Bill", "2010", "John", "4.5");
+
+        assertEquals(true, movie.hasName("Kill Bill"));
+    }
 }

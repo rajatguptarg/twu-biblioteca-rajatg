@@ -28,4 +28,8 @@ public class Movie {
     public String getMovieRating() {
         return movieRating;
     }
+
+    public boolean hasName(String name) {
+        return movieName.equalsIgnoreCase(name);
+    }
 }
