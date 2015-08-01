@@ -12,6 +12,7 @@ public class View {
         this.menu = new Menu();
         this.library = new Library();
         library.addBookToLibrary();
+        library.addMovieToLibrary();
     }
 
     private String getString() {
@@ -46,7 +47,7 @@ public class View {
         System.out.println("==================================================");
         List<String> books;
         books = library.listAllBooks();
-        for(String book : books) {
+        for (String book : books) {
             System.out.println(book);
         }
     }
@@ -70,6 +71,17 @@ public class View {
         }
         else {
             System.out.println("That is not a valid book to return.");
+        }
+    }
+
+    public void displayListOfMovies() {
+        String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
+        System.out.println("\n"+header);
+        System.out.println("==========================================================");
+        List<String> movies;
+        movies = library.listAllMovies();
+        for (String movie : movies) {
+            System.out.println(movie);
         }
     }
 }

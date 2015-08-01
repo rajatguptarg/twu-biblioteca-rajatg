@@ -8,13 +8,11 @@ public class Library {
     private List<Book> availableBooks;
     private List<Book> checkedOutBooks;
     private List<Movie> availableMovies;
-    private List<Movie> checkedOutMovies;
 
     public Library() {
         this.availableBooks = new ArrayList<Book>();
         this.checkedOutBooks = new ArrayList<Book>();
         this.availableMovies = new ArrayList<Movie>();
-        this.checkedOutMovies = new ArrayList<Movie>();
     }
 
     public void addBookToLibrary() {
@@ -25,7 +23,7 @@ public class Library {
         availableBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
     }
 
-    public void addMovieToLibarary() {
+    public void addMovieToLibrary() {
         availableMovies.add(new Movie("XXX", "2010", "John Doe", "7.2"));
         availableMovies.add(new Movie("XXX 2", "2010", "John Doe", "4.2"));
         availableMovies.add(new Movie("X-Men", "2012", "John Doe", "8.2"));
@@ -70,12 +68,22 @@ public class Library {
 
     public List<String> listAllBooks() {
         List<String> books = new ArrayList<String>();
-        for(Book book : availableBooks) {
+        for (Book book : availableBooks) {
             String bookRecord = String.format("%-20s %-20s %-6s", book.getBookName(),
                     book.getBookAuthor(), book.getYearPublished());
             books.add(bookRecord);
 
         }
         return books;
+    }
+
+    public List<String> listAllMovies() {
+        List<String> movies = new ArrayList<String>();
+        for ( Movie movie : availableMovies) {
+            String movieRecord = String.format("%-20s %-6s %-20s %-5s", movie.getMovieName(),
+                    movie.getYearReleased(), movie.getDirectorName(), movie.getMovieRating());
+            movies.add(movieRecord);
+        }
+        return movies;
     }
 }
