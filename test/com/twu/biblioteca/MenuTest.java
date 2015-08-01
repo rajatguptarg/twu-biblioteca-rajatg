@@ -24,8 +24,9 @@ public class MenuTest {
                 "1. List Books\n" +
                 "2. Check-Out Book\n" +
                 "3. Return Book\n" +
+                "4. List Movies\n" +
                 "0. Quit\n";
 
-        assertEquals(expectedOptions, menu.returnTheOptionAvailableToUser());
+        assertEquals(expectedOptions, menu.toString());
     }
 }

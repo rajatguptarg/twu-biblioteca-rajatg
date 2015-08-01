@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertEquals;
 public class LibraryTest {
 
     @Test
-    public void shouldReturnListOfAllBooks() throws Exception {
+    public void shouldReturnListOfAllBooks() {
         Library library = new Library();
         List<String> expectedList = new ArrayList<String>();
 
@@ -33,5 +33,15 @@ public class LibraryTest {
         library.performCheckOutBook("Great Rajat");
 
         assertEquals(true, library.performReturnBook("Great Rajat"));
+    }
+
+    @Test
+    public void shouldReturnListOfMovies() {
+        Library library = new Library();
+
+        library.addMovieToLibrary();
+        int totalMovies = library.listAllMovies().size();
+
+        assertEquals(true, totalMovies > 0);
     }
 }

@@ -28,6 +28,9 @@ public class BibliotecaApp {
             case 3:
                 view.showReturnBookStatus();
                 break;
+            case 4:
+                view.displayListOfMovies();
+                break;
             case 0:
                 System.exit(0);
             default:
