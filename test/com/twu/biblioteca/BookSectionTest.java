@@ -1,8 +1,6 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import java.util.ArrayList;
-import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -10,11 +8,13 @@ import static junit.framework.TestCase.assertEquals;
 public class BookSectionTest {
 
     @Test
-    public void shouldReturnListOfAllBooks() {
+    public void shouldReturnListOfBooks() {
         BookSection bookSection = new BookSection();
-        List<String> expectedList = new ArrayList<String>();
 
-        assertEquals(expectedList, bookSection.listAllBooks());
+        bookSection.addBookToLibrary();
+        int totalBooks = bookSection.listAllBooks().size();
+
+        assertEquals(true, totalBooks > 0);
     }
 
     @Test
@@ -33,15 +33,5 @@ public class BookSectionTest {
         bookSection.performCheckOutBook("Great Rajat");
 
         assertEquals(true, bookSection.performReturnBook("Great Rajat"));
-    }
-
-    @Test
-    public void shouldReturnListOfMovies() {
-        BookSection bookSection = new BookSection();
-
-        bookSection.addMovieToLibrary();
-        int totalMovies = bookSection.listAllMovies().size();
-
-        assertEquals(true, totalMovies > 0);
     }
 }

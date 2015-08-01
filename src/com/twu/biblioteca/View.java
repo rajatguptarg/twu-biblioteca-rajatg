@@ -7,12 +7,14 @@ import java.util.Scanner;
 public class View {
     private Menu menu;
     private BookSection bookSection;
+    private MovieSection movieSection;
 
     public View() {
         this.menu = new Menu();
         this.bookSection = new BookSection();
+        this.movieSection = new MovieSection();
         bookSection.addBookToLibrary();
-        bookSection.addMovieToLibrary();
+        movieSection.addMovieToLibrary();
     }
 
     private String getString() {
@@ -57,7 +59,7 @@ public class View {
         System.out.println("\n" + header);
         System.out.println("==========================================================");
         List<Movie> movies;
-        movies = bookSection.listAllMovies();
+        movies = movieSection.listAllMovies();
         for (Movie movie : movies) {
             System.out.println(movie.toString());
         }

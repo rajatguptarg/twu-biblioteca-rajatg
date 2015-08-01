@@ -7,12 +7,10 @@ import java.util.List;
 public class BookSection {
     private List<Book> availableBooks;
     private List<Book> checkedOutBooks;
-    private List<Movie> availableMovies;
 
     public BookSection() {
         this.availableBooks = new ArrayList<Book>();
         this.checkedOutBooks = new ArrayList<Book>();
-        this.availableMovies = new ArrayList<Movie>();
     }
 
     public void addBookToLibrary() {
@@ -21,14 +19,6 @@ public class BookSection {
         availableBooks.add(new Book("Have Fun", "Rajat", "2012"));
         availableBooks.add(new Book("I know nothing", "Jon Snow", "2011"));
         availableBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
-    }
-
-    public void addMovieToLibrary() {
-        availableMovies.add(new Movie("XXX", "2010", "John Doe", "7.2"));
-        availableMovies.add(new Movie("XXX 2", "2010", "John Doe", "4.2"));
-        availableMovies.add(new Movie("X-Men", "2012", "John Doe", "8.2"));
-        availableMovies.add(new Movie("Shawshank Redemption", "1994", "John Doe", "9.2"));
-        availableMovies.add(new Movie("Hulk", "2007", "John Doe", "7.0"));
     }
 
     public boolean performCheckOutBook(String nameOfBook) {
@@ -72,13 +62,5 @@ public class BookSection {
             books.add(book);
         }
         return books;
-    }
-
-    public List<Movie> listAllMovies() {
-        List<Movie> movies = new ArrayList<Movie>();
-        for (Movie movie : availableMovies) {
-            movies.add(movie);
-        }
-        return movies;
     }
 }
