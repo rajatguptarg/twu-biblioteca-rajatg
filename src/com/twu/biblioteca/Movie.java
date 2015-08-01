@@ -20,4 +20,8 @@ public class Movie {
     public String getYearReleased() {
         return yearReleased;
     }
+
+    public String getDirectorName() {
+        return directorName;
+    }
 }
