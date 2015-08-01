@@ -34,7 +34,7 @@ public class View {
     }
 
     public void displayAvailableOptionsToUser() {
-        System.out.println(menu.returnTheOptionAvailableToUser());
+        System.out.println(menu.toString());
     }
 
     public void displayErrorMessage() {
@@ -45,10 +45,21 @@ public class View {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<String> books;
+        List<Book> books;
         books = library.listAllBooks();
-        for (String book : books) {
-            System.out.println(book);
+        for (Book book : books) {
+            System.out.println(book.toString());
+        }
+    }
+
+    public void displayListOfMovies() {
+        String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
+        System.out.println("\n" + header);
+        System.out.println("==========================================================");
+        List<Movie> movies;
+        movies = library.listAllMovies();
+        for (Movie movie : movies) {
+            System.out.println(movie.toString());
         }
     }
 
@@ -71,17 +82,6 @@ public class View {
         }
         else {
             System.out.println("That is not a valid book to return.");
-        }
-    }
-
-    public void displayListOfMovies() {
-        String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
-        System.out.println("\n"+header);
-        System.out.println("==========================================================");
-        List<String> movies;
-        movies = library.listAllMovies();
-        for (String movie : movies) {
-            System.out.println(movie);
         }
     }
 }

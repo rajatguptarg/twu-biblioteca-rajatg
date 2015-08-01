@@ -27,4 +27,9 @@ public class Book {
     public boolean hasTitle(String title) {
         return bookName.equalsIgnoreCase(title);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-20s %-20s %-6s", getBookName(), getBookAuthor(), getYearPublished());
+    }
 }

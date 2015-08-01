@@ -66,23 +66,18 @@ public class Library {
         return searchedBook;
     }
 
-    public List<String> listAllBooks() {
-        List<String> books = new ArrayList<String>();
+    public List<Book> listAllBooks() {
+        List<Book> books = new ArrayList<Book>();
         for (Book book : availableBooks) {
-            String bookRecord = String.format("%-20s %-20s %-6s", book.getBookName(),
-                    book.getBookAuthor(), book.getYearPublished());
-            books.add(bookRecord);
-
+            books.add(book);
         }
         return books;
     }
 
-    public List<String> listAllMovies() {
-        List<String> movies = new ArrayList<String>();
-        for ( Movie movie : availableMovies) {
-            String movieRecord = String.format("%-20s %-6s %-20s %-5s", movie.getMovieName(),
-                    movie.getYearReleased(), movie.getDirectorName(), movie.getMovieRating());
-            movies.add(movieRecord);
+    public List<Movie> listAllMovies() {
+        List<Movie> movies = new ArrayList<Movie>();
+        for (Movie movie : availableMovies) {
+            movies.add(movie);
         }
         return movies;
     }

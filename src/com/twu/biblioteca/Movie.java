@@ -32,4 +32,9 @@ public class Movie {
     public boolean hasName(String name) {
         return movieName.equalsIgnoreCase(name);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-20s %-6s %-20s %-5s", getMovieName(), getYearReleased(), getDirectorName(), getMovieRating());
+    }
 }

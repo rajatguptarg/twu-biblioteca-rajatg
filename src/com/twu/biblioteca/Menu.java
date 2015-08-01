@@ -14,7 +14,8 @@ public class Menu {
         return welcomeMessage;
     }
 
-    public String returnTheOptionAvailableToUser() {
+    @Override
+    public String toString() {
         optionsList = "";
         optionsList += "\n** MAIN MENU **\n";
         optionsList += "================\n";
