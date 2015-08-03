@@ -24,6 +24,7 @@
             <test name="com.twu.biblioteca.model.BookTest"/>
             <test name="com.twu.biblioteca.controller.BookSectionTest"/>
             <test name="com.twu.biblioteca.model.MovieTest" />
+            <test name="com.twu.biblioteca.model.UserTest" />
             <classpath>
                 <pathelement location="build"/>
                 <path refid="classpath"/>
