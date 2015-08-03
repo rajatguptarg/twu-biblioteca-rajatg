@@ -1,4 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
+
+import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.model.LibraryItem;
 
 import java.util.List;
 import java.util.Scanner;
@@ -6,11 +9,11 @@ import java.util.Scanner;
 
 public class View {
     private Menu menu;
-    private BookSection bookSection;
-    private MovieSection movieSection;
+    private Library bookSection;
+    private Library movieSection;
 
-    public View(BookSection bookSection, MovieSection movieSection) {
-        this.menu = new Menu();
+    public View(Menu menu, Library bookSection, Library movieSection) {
+        this.menu = menu;
         this.bookSection = bookSection;
         this.movieSection = movieSection;
     }
@@ -45,9 +48,9 @@ public class View {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<Book> books;
-        books = bookSection.listAllBooks();
-        for (Book book : books) {
+        List<LibraryItem> books;
+        books = bookSection.listAvailableItems();
+        for (LibraryItem book : books) {
             System.out.println(book.toString());
         }
     }
@@ -56,9 +59,9 @@ public class View {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
-        List<Movie> movies;
-        movies = movieSection.listAvailableMovies();
-        for (Movie movie : movies) {
+        List<LibraryItem> movies;
+        movies = movieSection.listAvailableItems();
+        for (LibraryItem movie : movies) {
             System.out.println(movie.toString());
         }
     }
@@ -67,9 +70,9 @@ public class View {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
-        List<Movie> movies;
-        movies = movieSection.listCheckedOutMovies();
-        for (Movie movie : movies) {
+        List<LibraryItem> movies;
+        movies = movieSection.listCheckedOutItems();
+        for (LibraryItem movie : movies) {
             System.out.println(movie.toString());
         }
     }
@@ -78,9 +81,9 @@ public class View {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<Book> books;
-        books = bookSection.listCheckedOutBooks();
-        for (Book book : books) {
+        List<LibraryItem> books;
+        books = bookSection.listCheckedOutItems();
+        for (LibraryItem book : books) {
             System.out.println(book.toString());
         }
     }
@@ -88,7 +91,7 @@ public class View {
     public void showStatusOfCheckOutBook() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (bookSection.performCheckOutBook(nameOfBook)) {
+        if (bookSection.performCheckOut(nameOfBook)) {
             System.out.println("Thank you! Enjoy the book.");
         }
         else {
@@ -99,7 +102,7 @@ public class View {
     public void showStatusOfCheckOutMovie() {
         System.out.print("Enter Name of Movie: ");
         String nameOfMovie = getString();
-        if (movieSection.performCheckOutMovie(nameOfMovie)) {
+        if (movieSection.performCheckOut(nameOfMovie)) {
             System.out.println("Thank you! Enjoy the movie.");
         }
         else {
@@ -110,7 +113,7 @@ public class View {
     public void showReturnBookStatus() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (bookSection.performReturnBook(nameOfBook)) {
+        if (bookSection.performReturn(nameOfBook)) {
             System.out.println("Thank you for returning the book.");
         }
         else {
@@ -121,7 +124,7 @@ public class View {
     public void showReturnMovieStatus() {
         System.out.print("Enter Name of Movie: ");
         String nameOfMovie = getString();
-        if (movieSection.performReturnMovie(nameOfMovie)) {
+        if (movieSection.performReturn(nameOfMovie)) {
             System.out.println("Thank you for returning the movie.");
         }
         else {

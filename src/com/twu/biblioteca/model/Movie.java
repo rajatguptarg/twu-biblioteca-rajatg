@@ -1,6 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
-public class Movie {
+public class Movie implements LibraryItem {
     private String movieName;
     private String yearReleased;
     private String directorName;
@@ -29,8 +29,9 @@ public class Movie {
         return movieRating;
     }
 
-    public boolean hasName(String name) {
-        return movieName.equalsIgnoreCase(name);
+    @Override
+    public boolean hasTitle(String title) {
+        return movieName.equalsIgnoreCase(title);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
 import org.junit.Test;
 
@@ -46,13 +46,13 @@ public class MovieTest {
     public void shouldBeAbleToMatchItsNameWithCaseSensitivity() {
         Movie movie = new Movie("Kill Bill", "2010", "John", "4.5");
 
-        assertEquals(true, movie.hasName("Kill Bill"));
+        assertEquals(true, movie.hasTitle("Kill Bill"));
     }
 
     @Test
     public void shouldBeAbleToMatchItsNameWithOutCaseSensitivity() {
         Movie movie = new Movie("Kill Bill", "2010", "John", "4.5");
 
-        assertEquals(true, movie.hasName("kill bill"));
+        assertEquals(true, movie.hasTitle("kill bill"));
     }
 }
