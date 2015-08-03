@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.BookSection;
+import com.twu.biblioteca.controller.MovieSection;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

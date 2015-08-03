@@ -1,4 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
+
+import com.twu.biblioteca.controller.BookSection;
+import com.twu.biblioteca.controller.MovieSection;
+import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
 
 import java.util.List;
 import java.util.Scanner;

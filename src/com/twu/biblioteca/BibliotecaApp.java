@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.view.View;
+
 
 public class BibliotecaApp {
     private View view;

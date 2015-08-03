@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
 
+import com.twu.biblioteca.controller.MovieSection;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
