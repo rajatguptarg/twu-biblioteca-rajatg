@@ -16,7 +16,7 @@ public class MovieSection implements Library{
         addMovieToLibrary();
     }
 
-    public void addMovieToLibrary() {
+    private void addMovieToLibrary() {
         availableMovies.add(new Movie("XXX", "2010", "John Doe", "7.2"));
         availableMovies.add(new Movie("XXX 2", "2010", "John Doe", "4.2"));
         availableMovies.add(new Movie("X-Men", "2012", "John Doe", "8.2"));

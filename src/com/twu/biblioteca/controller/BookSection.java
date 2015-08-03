@@ -16,7 +16,7 @@ public class BookSection implements Library {
         addBookToLibrary();
     }
 
-    public void addBookToLibrary() {
+    private void addBookToLibrary() {
         availableBooks.add(new Book("Great Rajat", "Gatsby", "2015"));
         availableBooks.add(new Book("Incredible Rajat", "Tyrion Lannister", "2010"));
         availableBooks.add(new Book("Have Fun", "Rajat", "2012"));

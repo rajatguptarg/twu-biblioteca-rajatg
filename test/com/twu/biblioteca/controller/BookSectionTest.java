@@ -11,7 +11,6 @@ public class BookSectionTest {
     public void shouldReturnListOfBooks() {
         BookSection bookSection = new BookSection();
 
-        bookSection.addBookToLibrary();
         int totalBooks = bookSection.listAvailableBooks().size();
 
         assertEquals(true, totalBooks > 0);
@@ -39,7 +38,6 @@ public class BookSectionTest {
     public void shouldBeAbleToTakeReturnedBook() {
         BookSection bookSection = new BookSection();
 
-        bookSection.addBookToLibrary();
         bookSection.performCheckOut("Great Rajat");
 
         assertEquals(true, bookSection.performReturn("Great Rajat"));
