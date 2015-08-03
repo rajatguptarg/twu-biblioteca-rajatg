@@ -11,10 +11,20 @@ public class MovieSectionTest {
     public void shouldReturnListOfMovies() {
         MovieSection movieSection = new MovieSection();
 
-        movieSection.addMovieToLibrary();
-        int totalMovies = movieSection.listAllMovies().size();
+        int totalMovies = movieSection.listAvailableMovies().size();
 
         assertEquals(true, totalMovies > 0);
+    }
+
+    @Test
+    public void shouldReturnListOfCheckedOutMovies() {
+        MovieSection movieSection = new MovieSection();
+
+        movieSection.performCheckOutMovie("XXX");
+        int totalCheckedOutMovies = movieSection.listCheckedOutMovies().size();
+
+        assertEquals(true, totalCheckedOutMovies > 0);
+
     }
 
     @Test
@@ -29,7 +39,6 @@ public class MovieSectionTest {
     public void shouldBeAbleToTakeReturnedMovies() {
         MovieSection movieSection = new MovieSection();
 
-        movieSection.addMovieToLibrary();
         movieSection.performCheckOutMovie("XXX");
 
         assertEquals(true, movieSection.performReturnMovie("XXX"));

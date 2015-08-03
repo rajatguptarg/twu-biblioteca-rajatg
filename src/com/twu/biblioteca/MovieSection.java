@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MovieSection {
     private List<Movie> availableMovies;
     private List<Movie> checkedOutMovies;
@@ -10,6 +11,7 @@ public class MovieSection {
     public MovieSection() {
         availableMovies = new ArrayList<Movie>();
         checkedOutMovies = new ArrayList<Movie>();
+        addMovieToLibrary();
     }
 
     public void addMovieToLibrary() {
@@ -21,12 +23,12 @@ public class MovieSection {
     }
 
 
-    public List<Movie> listAllMovies() {
-        List<Movie> movies = new ArrayList<Movie>();
-        for (Movie movie : availableMovies) {
-            movies.add(movie);
-        }
-        return movies;
+    public List<Movie> listAvailableMovies() {
+        return availableMovies;
+    }
+
+    public List<Movie> listCheckedOutMovies() {
+        return checkedOutMovies;
     }
 
     public boolean performCheckOutMovie(String nameOfMovie) {

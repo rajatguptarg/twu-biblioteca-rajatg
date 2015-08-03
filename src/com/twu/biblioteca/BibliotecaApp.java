@@ -20,7 +20,7 @@ public class BibliotecaApp {
     void executeOperation(int option) {
         switch (option) {
             case 1:
-                view.displayListOfBooks();
+                view.displayListOfAvailableBooks();
                 break;
             case 2:
                 view.showStatusOfCheckOutBook();
@@ -29,13 +29,16 @@ public class BibliotecaApp {
                 view.showReturnBookStatus();
                 break;
             case 4:
-                view.displayListOfMovies();
+                view.displayListOfAvailableMovies();
                 break;
             case 5:
                 view.showStatusOfCheckOutMovie();
                 break;
             case 6:
                 view.showReturnMovieStatus();
+                break;
+            case 8:
+                view.displayListOfCheckedOutMovies();
                 break;
             case 0:
                 System.exit(0);

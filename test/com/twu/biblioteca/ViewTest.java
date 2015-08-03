@@ -22,7 +22,9 @@ public class ViewTest {
 
     @Test
     public void shouldShowWelcomeMessage() {
-        View view = new View();
+        MovieSection movieSection = new MovieSection();
+        BookSection bookSection = new BookSection();
+        View view = new View(bookSection, movieSection);
 
         view.displayWelcomeMessage();
 
@@ -30,21 +32,25 @@ public class ViewTest {
     }
 
     @Test
-    public void userShouldBeAbleToGiveOption() {
-        View view = Mockito.mock(View.class);
-
-        Mockito.when(view.chooseOption()).thenReturn(1);
-
-        assertEquals(1, view.chooseOption());
-    }
-
-    @Test
     public void shouldBeAbleToDisplayErrorMessage() {
-        View view = new View();
+        MovieSection movieSection = new MovieSection();
+        BookSection bookSection = new BookSection();
+        View view = new View(bookSection, movieSection);
 
         view.displayErrorMessage();
 
         assertEquals("Select a valid option!\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldAskFromMovieSectionToDisplayCheckedOutBooks() {
+        MovieSection movieSection = Mockito.mock(MovieSection.class);
+        BookSection bookSection = new BookSection();
+        View view = new View(bookSection, movieSection);
+
+        view.displayListOfCheckedOutMovies();
+
+        Mockito.verify(movieSection).listCheckedOutMovies();
     }
 
     @After

@@ -11,6 +11,7 @@ public class BookSection {
     public BookSection() {
         this.availableBooks = new ArrayList<Book>();
         this.checkedOutBooks = new ArrayList<Book>();
+        addBookToLibrary();
     }
 
     public void addBookToLibrary() {

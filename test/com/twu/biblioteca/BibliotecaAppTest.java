@@ -13,7 +13,7 @@ public class BibliotecaAppTest {
 
         bibliotecaApp.executeOperation(1);
 
-        Mockito.verify(view).displayListOfBooks();
+        Mockito.verify(view).displayListOfAvailableBooks();
     }
 
     @Test
@@ -43,7 +43,7 @@ public class BibliotecaAppTest {
 
         bibliotecaApp.executeOperation(4);
 
-        Mockito.verify(view).displayListOfMovies();
+        Mockito.verify(view).displayListOfAvailableMovies();
     }
 
     @Test
@@ -64,6 +64,16 @@ public class BibliotecaAppTest {
         bibliotecaApp.executeOperation(6);
 
         Mockito.verify(view).showReturnMovieStatus();
+    }
+
+    @Test
+    public void applicationShouldBeAbleDisplayCheckedOutMovies() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+
+        bibliotecaApp.executeOperation(8);
+
+        Mockito.verify(view).displayListOfCheckedOutMovies();
     }
 
     @Test

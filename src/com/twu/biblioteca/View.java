@@ -9,12 +9,10 @@ public class View {
     private BookSection bookSection;
     private MovieSection movieSection;
 
-    public View() {
+    public View(BookSection bookSection, MovieSection movieSection) {
         this.menu = new Menu();
-        this.bookSection = new BookSection();
-        this.movieSection = new MovieSection();
-        bookSection.addBookToLibrary();
-        movieSection.addMovieToLibrary();
+        this.bookSection = bookSection;
+        this.movieSection = movieSection;
     }
 
     private String getString() {
@@ -43,7 +41,7 @@ public class View {
         System.out.println("Select a valid option!");
     }
 
-    public void displayListOfBooks() {
+    public void displayListOfAvailableBooks() {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
@@ -54,12 +52,23 @@ public class View {
         }
     }
 
-    public void displayListOfMovies() {
+    public void displayListOfAvailableMovies() {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
         List<Movie> movies;
-        movies = movieSection.listAllMovies();
+        movies = movieSection.listAvailableMovies();
+        for (Movie movie : movies) {
+            System.out.println(movie.toString());
+        }
+    }
+
+    public void displayListOfCheckedOutMovies() {
+        String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
+        System.out.println("\n" + header);
+        System.out.println("==========================================================");
+        List<Movie> movies;
+        movies = movieSection.listCheckedOutMovies();
         for (Movie movie : movies) {
             System.out.println(movie.toString());
         }
