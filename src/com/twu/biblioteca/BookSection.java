@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Library {
-    private List<Book> availableBooks = new ArrayList<Book>();
-    private List<Book> checkedOutBooks = new ArrayList<Book>();
+public class BookSection {
+    private List<Book> availableBooks;
+    private List<Book> checkedOutBooks;
 
-    public Library() {
+    public BookSection() {
         this.availableBooks = new ArrayList<Book>();
+        this.checkedOutBooks = new ArrayList<Book>();
+        addBookToLibrary();
     }
 
     public void addBookToLibrary() {
@@ -25,7 +27,7 @@ public class Library {
         if (requiredBook == null || (checkedOutBooks.contains(requiredBook))) {
             return false;
         }
-        return checkOut(requiredBook);
+        return checkOutBook(requiredBook);
     }
 
     public boolean performReturnBook(String nameOfBook) {
@@ -33,14 +35,14 @@ public class Library {
         if (requiredBook == null || (availableBooks.contains(requiredBook))) {
             return false;
         }
-        return checkIn(requiredBook);
+        return checkInBook(requiredBook);
     }
 
-    private boolean checkOut(Book book) {
+    private boolean checkOutBook(Book book) {
         return (checkedOutBooks.add(book) && availableBooks.remove(book));
     }
 
-    private boolean checkIn(Book book) {
+    private boolean checkInBook(Book book) {
         return (checkedOutBooks.remove(book) && availableBooks.add(book));
     }
 
@@ -55,14 +57,15 @@ public class Library {
         return searchedBook;
     }
 
-    public List<String> listAllBooks() {
-        List<String> books = new ArrayList<String>();
-        for(Book book : availableBooks) {
-            String bookRecord = String.format("%-20s %-20s %-6s", book.getBookName(),
-                    book.getBookAuthor(), book.getYearPublished());
-            books.add(bookRecord);
-
+    public List<Book> listAllBooks() {
+        List<Book> books = new ArrayList<Book>();
+        for (Book book : availableBooks) {
+            books.add(book);
         }
         return books;
+    }
+
+    public List<Book> listCheckedOutBooks() {
+        return checkedOutBooks;
     }
 }

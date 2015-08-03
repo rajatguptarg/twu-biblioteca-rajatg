@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 public class View {
     private Menu menu;
-    private Library library;
+    private BookSection bookSection;
+    private MovieSection movieSection;
 
-    public View() {
+    public View(BookSection bookSection, MovieSection movieSection) {
         this.menu = new Menu();
-        this.library = new Library();
-        library.addBookToLibrary();
+        this.bookSection = bookSection;
+        this.movieSection = movieSection;
     }
 
     private String getString() {
@@ -33,28 +34,61 @@ public class View {
     }
 
     public void displayAvailableOptionsToUser() {
-        System.out.println(menu.returnTheOptionAvailableToUser());
+        System.out.println(menu.toString());
     }
 
     public void displayErrorMessage() {
         System.out.println("Select a valid option!");
     }
 
-    public void displayListOfBooks() {
+    public void displayListOfAvailableBooks() {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<String> books;
-        books = library.listAllBooks();
-        for(String book : books) {
-            System.out.println(book);
+        List<Book> books;
+        books = bookSection.listAllBooks();
+        for (Book book : books) {
+            System.out.println(book.toString());
         }
     }
 
-    public void showStatusOfCheckOut() {
+    public void displayListOfAvailableMovies() {
+        String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
+        System.out.println("\n" + header);
+        System.out.println("==========================================================");
+        List<Movie> movies;
+        movies = movieSection.listAvailableMovies();
+        for (Movie movie : movies) {
+            System.out.println(movie.toString());
+        }
+    }
+
+    public void displayListOfCheckedOutMovies() {
+        String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
+        System.out.println("\n" + header);
+        System.out.println("==========================================================");
+        List<Movie> movies;
+        movies = movieSection.listCheckedOutMovies();
+        for (Movie movie : movies) {
+            System.out.println(movie.toString());
+        }
+    }
+
+    public void displayListOfCheckedOutBooks() {
+        String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
+        System.out.println("\n"+header);
+        System.out.println("==================================================");
+        List<Book> books;
+        books = bookSection.listCheckedOutBooks();
+        for (Book book : books) {
+            System.out.println(book.toString());
+        }
+    }
+
+    public void showStatusOfCheckOutBook() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (library.performCheckOutBook(nameOfBook)) {
+        if (bookSection.performCheckOutBook(nameOfBook)) {
             System.out.println("Thank you! Enjoy the book.");
         }
         else {
@@ -62,14 +96,36 @@ public class View {
         }
     }
 
+    public void showStatusOfCheckOutMovie() {
+        System.out.print("Enter Name of Movie: ");
+        String nameOfMovie = getString();
+        if (movieSection.performCheckOutMovie(nameOfMovie)) {
+            System.out.println("Thank you! Enjoy the movie.");
+        }
+        else {
+            System.out.println("That movie is not available.");
+        }
+    }
+
     public void showReturnBookStatus() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (library.performReturnBook(nameOfBook)) {
+        if (bookSection.performReturnBook(nameOfBook)) {
             System.out.println("Thank you for returning the book.");
         }
         else {
             System.out.println("That is not a valid book to return.");
+        }
+    }
+
+    public void showReturnMovieStatus() {
+        System.out.print("Enter Name of Movie: ");
+        String nameOfMovie = getString();
+        if (movieSection.performReturnMovie(nameOfMovie)) {
+            System.out.println("Thank you for returning the movie.");
+        }
+        else {
+            System.out.println("That is not valid movie to return.");
         }
     }
 }
