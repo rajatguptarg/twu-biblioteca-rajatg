@@ -1,13 +1,15 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.controller.BookSection;
-import com.twu.biblioteca.controller.MovieSection;
+import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.model.LibraryItem;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -25,8 +27,14 @@ public class ViewTest {
     @Test
     public void shouldShowWelcomeMessage() {
         Menu menu = new Menu();
-        MovieSection movieSection = new MovieSection();
-        BookSection bookSection = new BookSection();
+        List<LibraryItem> movieList = new ArrayList<LibraryItem>();
+        List<LibraryItem> movieListCheckedOut = new ArrayList<LibraryItem>();
+        List<LibraryItem> bookList = new ArrayList<LibraryItem>();
+        List<LibraryItem> checkedOutBookList = new ArrayList<LibraryItem>();
+
+        Library bookSection = new Library(bookList, checkedOutBookList);
+        Library movieSection = new Library(movieList, movieListCheckedOut);
+
         View view = new View(menu, bookSection, movieSection);
 
         view.displayWelcomeMessage();
@@ -37,32 +45,46 @@ public class ViewTest {
     @Test
     public void shouldBeAbleToDisplayAvailableBooks() {
         Menu menu = new Menu();
-        BookSection bookSection = Mockito.mock(BookSection.class);
-        MovieSection movieSection = new MovieSection();
+        List<LibraryItem> movieList = new ArrayList<LibraryItem>();
+        List<LibraryItem> movieListCheckedOut = new ArrayList<LibraryItem>();
+
+        Library bookSection = Mockito.mock(Library.class);
+        Library movieSection = new Library(movieList, movieListCheckedOut);
+
         View view = new View(menu, bookSection, movieSection);
 
         view.displayListOfAvailableBooks();
 
-        Mockito.verify(bookSection).listAvailableBooks();
+        Mockito.verify(bookSection).listAvailableItems();
     }
 
     @Test
     public void shouldBeAbleToDisplayAvailableMovies() {
         Menu menu = new Menu();
-        BookSection bookSection = new BookSection();
-        MovieSection movieSection = Mockito.mock(MovieSection.class);
+        List<LibraryItem> bookList = new ArrayList<LibraryItem>();
+        List<LibraryItem> checkedOutBookList = new ArrayList<LibraryItem>();
+
+        Library bookSection = new Library(bookList, checkedOutBookList);
+        Library movieSection = Mockito.mock(Library.class);
+
         View view = new View(menu, bookSection, movieSection);
 
         view.displayListOfAvailableMovies();
 
-        Mockito.verify(movieSection).listAvailableMovies();
+        Mockito.verify(movieSection).listAvailableItems();
     }
 
     @Test
     public void shouldBeAbleToDisplayErrorMessage() {
         Menu menu = new Menu();
-        MovieSection movieSection = new MovieSection();
-        BookSection bookSection = new BookSection();
+        List<LibraryItem> movieList = new ArrayList<LibraryItem>();
+        List<LibraryItem> movieListCheckedOut = new ArrayList<LibraryItem>();
+        List<LibraryItem> bookList = new ArrayList<LibraryItem>();
+        List<LibraryItem> checkedOutBookList = new ArrayList<LibraryItem>();
+
+        Library bookSection = new Library(bookList, checkedOutBookList);
+        Library movieSection = new Library(movieList, movieListCheckedOut);
+
         View view = new View(menu, bookSection, movieSection);
 
         view.displayErrorMessage();
@@ -73,25 +95,33 @@ public class ViewTest {
     @Test
     public void shouldAskFromMovieSectionToDisplayCheckedOutMovies() {
         Menu menu = new Menu();
-        MovieSection movieSection = Mockito.mock(MovieSection.class);
-        BookSection bookSection = new BookSection();
+        List<LibraryItem> bookList = new ArrayList<LibraryItem>();
+        List<LibraryItem> checkedOutBookList = new ArrayList<LibraryItem>();
+
+        Library bookSection = new Library(bookList, checkedOutBookList);
+        Library movieSection = Mockito.mock(Library.class);
+
         View view = new View(menu, bookSection, movieSection);
 
         view.displayListOfCheckedOutMovies();
 
-        Mockito.verify(movieSection).listCheckedOutMovies();
+        Mockito.verify(movieSection).listCheckedOutItems();
     }
 
     @Test
     public void shouldAskFromBookSectionToDisplayCheckedOutBooks() {
         Menu menu = new Menu();
-        MovieSection movieSection = new MovieSection();
-        BookSection bookSection = Mockito.mock(BookSection.class);
+        List<LibraryItem> movieList = new ArrayList<LibraryItem>();
+        List<LibraryItem> movieListCheckedOut = new ArrayList<LibraryItem>();
+
+        Library bookSection = Mockito.mock(Library.class);
+        Library movieSection = new Library(movieList, movieListCheckedOut);
+
         View view = new View(menu, bookSection, movieSection);
 
         view.displayListOfCheckedOutBooks();
 
-        Mockito.verify(bookSection).listCheckedOutBooks();
+        Mockito.verify(bookSection).listCheckedOutItems();
     }
 
     @After

@@ -1,9 +1,7 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.controller.BookSection;
-import com.twu.biblioteca.controller.MovieSection;
-import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.model.LibraryItem;
 
 import java.util.List;
 import java.util.Scanner;
@@ -11,10 +9,10 @@ import java.util.Scanner;
 
 public class View {
     private Menu menu;
-    private BookSection bookSection;
-    private MovieSection movieSection;
+    private Library bookSection;
+    private Library movieSection;
 
-    public View(Menu menu, BookSection bookSection, MovieSection movieSection) {
+    public View(Menu menu, Library bookSection, Library movieSection) {
         this.menu = menu;
         this.bookSection = bookSection;
         this.movieSection = movieSection;
@@ -50,9 +48,9 @@ public class View {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<Book> books;
-        books = bookSection.listAvailableBooks();
-        for (Book book : books) {
+        List<LibraryItem> books;
+        books = bookSection.listAvailableItems();
+        for (LibraryItem book : books) {
             System.out.println(book.toString());
         }
     }
@@ -61,9 +59,9 @@ public class View {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
-        List<Movie> movies;
-        movies = movieSection.listAvailableMovies();
-        for (Movie movie : movies) {
+        List<LibraryItem> movies;
+        movies = movieSection.listAvailableItems();
+        for (LibraryItem movie : movies) {
             System.out.println(movie.toString());
         }
     }
@@ -72,9 +70,9 @@ public class View {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
-        List<Movie> movies;
-        movies = movieSection.listCheckedOutMovies();
-        for (Movie movie : movies) {
+        List<LibraryItem> movies;
+        movies = movieSection.listCheckedOutItems();
+        for (LibraryItem movie : movies) {
             System.out.println(movie.toString());
         }
     }
@@ -83,9 +81,9 @@ public class View {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<Book> books;
-        books = bookSection.listCheckedOutBooks();
-        for (Book book : books) {
+        List<LibraryItem> books;
+        books = bookSection.listCheckedOutItems();
+        for (LibraryItem book : books) {
             System.out.println(book.toString());
         }
     }

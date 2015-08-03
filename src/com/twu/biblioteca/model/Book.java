@@ -1,7 +1,7 @@
 package com.twu.biblioteca.model;
 
 
-public class Book {
+public class Book implements LibraryItem {
     private String bookName;
     private String bookAuthor;
     private String yearPublished;
@@ -24,6 +24,7 @@ public class Book {
         return yearPublished;
     }
 
+    @Override
     public boolean hasTitle(String title) {
         return bookName.equalsIgnoreCase(title);
     }

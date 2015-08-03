@@ -22,9 +22,9 @@
             <test name="com.twu.biblioteca.BibliotecaAppTest"/>
             <test name="com.twu.biblioteca.view.MenuTest"/>
             <test name="com.twu.biblioteca.model.BookTest"/>
-            <test name="com.twu.biblioteca.controller.BookSectionTest"/>
             <test name="com.twu.biblioteca.model.MovieTest" />
             <test name="com.twu.biblioteca.model.UserTest" />
+            <test name="com.twu.biblioteca.controller.LibraryTest" />
             <classpath>
                 <pathelement location="build"/>
                 <path refid="classpath"/>
