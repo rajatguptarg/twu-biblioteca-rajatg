@@ -64,4 +64,8 @@ public class BookSection {
         }
         return books;
     }
+
+    public List<Book> listCheckedOutBooks() {
+        return checkedOutBooks;
+    }
 }

@@ -18,6 +18,16 @@ public class BookSectionTest {
     }
 
     @Test
+    public void shouldReturnListOfCheckedOutBooks() {
+        BookSection bookSection = new BookSection();
+
+        bookSection.performCheckOutBook("Great Rajat");
+        int totalCheckedOutBooks = bookSection.listCheckedOutBooks().size();
+
+        assertEquals(true, totalCheckedOutBooks > 0);
+    }
+
+    @Test
     public void shouldNotBedAbleToCheckOutBookIfBookIsNotPresent() {
         BookSection bookSection = new BookSection();
         String nameOfBook="my book";

@@ -77,6 +77,16 @@ public class BibliotecaAppTest {
     }
 
     @Test
+    public void applicationShouldBeAbleDisplayCheckedOutBooks() {
+        View view = Mockito.mock(View.class);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+
+        bibliotecaApp.executeOperation(7);
+
+        Mockito.verify(view).displayListOfCheckedOutBooks();
+    }
+
+    @Test
     public void applicationShouldBeAbleToDisplayErrorMessage() {
         View view = Mockito.mock(View.class);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view);

@@ -43,7 +43,7 @@ public class ViewTest {
     }
 
     @Test
-    public void shouldAskFromMovieSectionToDisplayCheckedOutBooks() {
+    public void shouldAskFromMovieSectionToDisplayCheckedOutMovies() {
         MovieSection movieSection = Mockito.mock(MovieSection.class);
         BookSection bookSection = new BookSection();
         View view = new View(bookSection, movieSection);
@@ -51,6 +51,17 @@ public class ViewTest {
         view.displayListOfCheckedOutMovies();
 
         Mockito.verify(movieSection).listCheckedOutMovies();
+    }
+
+    @Test
+    public void shouldAskFromBookSectionToDisplayCheckedOutBooks() {
+        MovieSection movieSection = new MovieSection();
+        BookSection bookSection = Mockito.mock(BookSection.class);
+        View view = new View(bookSection, movieSection);
+
+        view.displayListOfCheckedOutBooks();
+
+        Mockito.verify(bookSection).listCheckedOutBooks();
     }
 
     @After

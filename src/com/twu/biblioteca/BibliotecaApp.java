@@ -37,6 +37,9 @@ public class BibliotecaApp {
             case 6:
                 view.showReturnMovieStatus();
                 break;
+            case 7:
+                view.displayListOfCheckedOutBooks();
+                break;
             case 8:
                 view.displayListOfCheckedOutMovies();
                 break;

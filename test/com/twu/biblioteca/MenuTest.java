@@ -27,6 +27,7 @@ public class MenuTest {
                 "4. List Movies\n" +
                 "5. Check-Out Movie\n" +
                 "6. Return Movie\n" +
+                "7. Display Checked Out Books\n" +
                 "8. Display Checked Out Movies\n" +
                 "0. Quit\n";
 

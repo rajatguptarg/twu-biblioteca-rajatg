@@ -74,6 +74,17 @@ public class View {
         }
     }
 
+    public void displayListOfCheckedOutBooks() {
+        String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
+        System.out.println("\n"+header);
+        System.out.println("==================================================");
+        List<Book> books;
+        books = bookSection.listCheckedOutBooks();
+        for (Book book : books) {
+            System.out.println(book.toString());
+        }
+    }
+
     public void showStatusOfCheckOutBook() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();

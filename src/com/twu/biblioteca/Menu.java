@@ -25,6 +25,7 @@ public class Menu {
         optionsList += "4. List Movies\n";
         optionsList += "5. Check-Out Movie\n";
         optionsList += "6. Return Movie\n";
+        optionsList += "7. Display Checked Out Books\n";
         optionsList += "8. Display Checked Out Movies\n";
         optionsList += "0. Quit\n";
 
