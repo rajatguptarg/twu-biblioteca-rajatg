@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BookSection {
+public class BookSection implements Library {
     private List<Book> availableBooks;
     private List<Book> checkedOutBooks;
 
@@ -24,7 +24,8 @@ public class BookSection {
         availableBooks.add(new Book("valar morghulis", "Khalisi", "2010"));
     }
 
-    public boolean performCheckOutBook(String nameOfBook) {
+    @Override
+    public boolean performCheckOut(String nameOfBook) {
         Book requiredBook = this.searchBookByName(nameOfBook, availableBooks);
         if (requiredBook == null || (checkedOutBooks.contains(requiredBook))) {
             return false;
@@ -32,7 +33,8 @@ public class BookSection {
         return checkOutBook(requiredBook);
     }
 
-    public boolean performReturnBook(String nameOfBook) {
+    @Override
+    public boolean performReturn(String nameOfBook) {
         Book requiredBook = this.searchBookByName(nameOfBook, checkedOutBooks);
         if (requiredBook == null || (availableBooks.contains(requiredBook))) {
             return false;
@@ -60,11 +62,7 @@ public class BookSection {
     }
 
     public List<Book> listAvailableBooks() {
-        List<Book> books = new ArrayList<Book>();
-        for (Book book : availableBooks) {
-            books.add(book);
-        }
-        return books;
+        return availableBooks;
     }
 
     public List<Book> listCheckedOutBooks() {

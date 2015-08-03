@@ -21,7 +21,7 @@ public class BookSectionTest {
     public void shouldReturnListOfCheckedOutBooks() {
         BookSection bookSection = new BookSection();
 
-        bookSection.performCheckOutBook("Great Rajat");
+        bookSection.performCheckOut("Great Rajat");
         int totalCheckedOutBooks = bookSection.listCheckedOutBooks().size();
 
         assertEquals(true, totalCheckedOutBooks > 0);
@@ -32,7 +32,7 @@ public class BookSectionTest {
         BookSection bookSection = new BookSection();
         String nameOfBook="my book";
 
-        assertEquals(false, bookSection.performCheckOutBook(nameOfBook));
+        assertEquals(false, bookSection.performCheckOut(nameOfBook));
     }
 
     @Test
@@ -40,8 +40,8 @@ public class BookSectionTest {
         BookSection bookSection = new BookSection();
 
         bookSection.addBookToLibrary();
-        bookSection.performCheckOutBook("Great Rajat");
+        bookSection.performCheckOut("Great Rajat");
 
-        assertEquals(true, bookSection.performReturnBook("Great Rajat"));
+        assertEquals(true, bookSection.performReturn("Great Rajat"));
     }
 }

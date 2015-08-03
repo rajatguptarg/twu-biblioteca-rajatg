@@ -1,6 +1,5 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.controller.MovieSection;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -21,7 +20,7 @@ public class MovieSectionTest {
     public void shouldReturnListOfCheckedOutMovies() {
         MovieSection movieSection = new MovieSection();
 
-        movieSection.performCheckOutMovie("XXX");
+        movieSection.performCheckOut("XXX");
         int totalCheckedOutMovies = movieSection.listCheckedOutMovies().size();
 
         assertEquals(true, totalCheckedOutMovies > 0);
@@ -33,15 +32,15 @@ public class MovieSectionTest {
         MovieSection movieSection = new MovieSection();
         String nameOfMovie = "my movie";
 
-        assertEquals(false, movieSection.performCheckOutMovie(nameOfMovie));
+        assertEquals(false, movieSection.performCheckOut(nameOfMovie));
     }
 
     @Test
     public void shouldBeAbleToTakeReturnedMovies() {
         MovieSection movieSection = new MovieSection();
 
-        movieSection.performCheckOutMovie("XXX");
+        movieSection.performCheckOut("XXX");
 
-        assertEquals(true, movieSection.performReturnMovie("XXX"));
+        assertEquals(true, movieSection.performReturn("XXX"));
     }
 }

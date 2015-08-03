@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MovieSection {
+public class MovieSection implements Library{
     private List<Movie> availableMovies;
     private List<Movie> checkedOutMovies;
 
@@ -33,7 +33,8 @@ public class MovieSection {
         return checkedOutMovies;
     }
 
-    public boolean performCheckOutMovie(String nameOfMovie) {
+    @Override
+    public boolean performCheckOut(String nameOfMovie) {
         Movie requiredMovie = this.searchMovieByName(nameOfMovie, availableMovies);
         if (requiredMovie == null || (checkedOutMovies.contains(requiredMovie))) {
             return false;
@@ -41,7 +42,8 @@ public class MovieSection {
         return checkOutMovie(requiredMovie);
     }
 
-    public boolean performReturnMovie(String nameOfMovie) {
+    @Override
+    public boolean performReturn(String nameOfMovie) {
         Movie requiredMovie = this.searchMovieByName(nameOfMovie, checkedOutMovies);
         if (requiredMovie == null || (availableMovies.contains(requiredMovie))) {
             return false;

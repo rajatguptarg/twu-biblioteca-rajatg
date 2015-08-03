@@ -93,7 +93,7 @@ public class View {
     public void showStatusOfCheckOutBook() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (bookSection.performCheckOutBook(nameOfBook)) {
+        if (bookSection.performCheckOut(nameOfBook)) {
             System.out.println("Thank you! Enjoy the book.");
         }
         else {
@@ -104,7 +104,7 @@ public class View {
     public void showStatusOfCheckOutMovie() {
         System.out.print("Enter Name of Movie: ");
         String nameOfMovie = getString();
-        if (movieSection.performCheckOutMovie(nameOfMovie)) {
+        if (movieSection.performCheckOut(nameOfMovie)) {
             System.out.println("Thank you! Enjoy the movie.");
         }
         else {
@@ -115,7 +115,7 @@ public class View {
     public void showReturnBookStatus() {
         System.out.print("Enter Name of Book: ");
         String nameOfBook = getString();
-        if (bookSection.performReturnBook(nameOfBook)) {
+        if (bookSection.performReturn(nameOfBook)) {
             System.out.println("Thank you for returning the book.");
         }
         else {
@@ -126,7 +126,7 @@ public class View {
     public void showReturnMovieStatus() {
         System.out.print("Enter Name of Movie: ");
         String nameOfMovie = getString();
-        if (movieSection.performReturnMovie(nameOfMovie)) {
+        if (movieSection.performReturn(nameOfMovie)) {
             System.out.println("Thank you for returning the movie.");
         }
         else {
