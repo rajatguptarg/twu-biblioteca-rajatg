@@ -9,8 +9,8 @@ public class View {
     private BookSection bookSection;
     private MovieSection movieSection;
 
-    public View(BookSection bookSection, MovieSection movieSection) {
-        this.menu = new Menu();
+    public View(Menu menu, BookSection bookSection, MovieSection movieSection) {
+        this.menu = menu;
         this.bookSection = bookSection;
         this.movieSection = movieSection;
     }
@@ -46,7 +46,7 @@ public class View {
         System.out.println("\n"+header);
         System.out.println("==================================================");
         List<Book> books;
-        books = bookSection.listAllBooks();
+        books = bookSection.listAvailableBooks();
         for (Book book : books) {
             System.out.println(book.toString());
         }

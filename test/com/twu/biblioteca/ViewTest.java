@@ -22,9 +22,10 @@ public class ViewTest {
 
     @Test
     public void shouldShowWelcomeMessage() {
+        Menu menu = new Menu();
         MovieSection movieSection = new MovieSection();
         BookSection bookSection = new BookSection();
-        View view = new View(bookSection, movieSection);
+        View view = new View(menu, bookSection, movieSection);
 
         view.displayWelcomeMessage();
 
@@ -32,10 +33,35 @@ public class ViewTest {
     }
 
     @Test
+    public void shouldBeAbleToDisplayAvailableBooks() {
+        Menu menu = new Menu();
+        BookSection bookSection = Mockito.mock(BookSection.class);
+        MovieSection movieSection = new MovieSection();
+        View view = new View(menu, bookSection, movieSection);
+
+        view.displayListOfAvailableBooks();
+
+        Mockito.verify(bookSection).listAvailableBooks();
+    }
+
+    @Test
+    public void shouldBeAbleToDisplayAvailableMovies() {
+        Menu menu = new Menu();
+        BookSection bookSection = new BookSection();
+        MovieSection movieSection = Mockito.mock(MovieSection.class);
+        View view = new View(menu, bookSection, movieSection);
+
+        view.displayListOfAvailableMovies();
+
+        Mockito.verify(movieSection).listAvailableMovies();
+    }
+
+    @Test
     public void shouldBeAbleToDisplayErrorMessage() {
+        Menu menu = new Menu();
         MovieSection movieSection = new MovieSection();
         BookSection bookSection = new BookSection();
-        View view = new View(bookSection, movieSection);
+        View view = new View(menu, bookSection, movieSection);
 
         view.displayErrorMessage();
 
@@ -44,9 +70,10 @@ public class ViewTest {
 
     @Test
     public void shouldAskFromMovieSectionToDisplayCheckedOutMovies() {
+        Menu menu = new Menu();
         MovieSection movieSection = Mockito.mock(MovieSection.class);
         BookSection bookSection = new BookSection();
-        View view = new View(bookSection, movieSection);
+        View view = new View(menu, bookSection, movieSection);
 
         view.displayListOfCheckedOutMovies();
 
@@ -55,9 +82,10 @@ public class ViewTest {
 
     @Test
     public void shouldAskFromBookSectionToDisplayCheckedOutBooks() {
+        Menu menu = new Menu();
         MovieSection movieSection = new MovieSection();
         BookSection bookSection = Mockito.mock(BookSection.class);
-        View view = new View(bookSection, movieSection);
+        View view = new View(menu, bookSection, movieSection);
 
         view.displayListOfCheckedOutBooks();
 

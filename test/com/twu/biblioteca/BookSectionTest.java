@@ -12,7 +12,7 @@ public class BookSectionTest {
         BookSection bookSection = new BookSection();
 
         bookSection.addBookToLibrary();
-        int totalBooks = bookSection.listAllBooks().size();
+        int totalBooks = bookSection.listAvailableBooks().size();
 
         assertEquals(true, totalBooks > 0);
     }

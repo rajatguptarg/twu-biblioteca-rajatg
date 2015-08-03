@@ -57,7 +57,7 @@ public class BookSection {
         return searchedBook;
     }
 
-    public List<Book> listAllBooks() {
+    public List<Book> listAvailableBooks() {
         List<Book> books = new ArrayList<Book>();
         for (Book book : availableBooks) {
             books.add(book);
