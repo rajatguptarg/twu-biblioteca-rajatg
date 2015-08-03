@@ -13,22 +13,6 @@ public class Movie implements LibraryItem {
         this.movieRating = movieRating;
     }
 
-    public String getMovieName() {
-        return movieName;
-    }
-    
-    public String getYearReleased() {
-        return yearReleased;
-    }
-
-    public String getDirectorName() {
-        return directorName;
-    }
-
-    public String getMovieRating() {
-        return movieRating;
-    }
-
     @Override
     public boolean hasTitle(String title) {
         return movieName.equalsIgnoreCase(title);
@@ -36,6 +20,6 @@ public class Movie implements LibraryItem {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-6s %-20s %-5s", getMovieName(), getYearReleased(), getDirectorName(), getMovieRating());
+        return String.format("%-20s %-6s %-20s %-5s", movieName, yearReleased, directorName, movieRating);
     }
 }

@@ -12,18 +12,6 @@ public class Book implements LibraryItem {
         this.yearPublished = yearPublished;
     }
 
-    public String getBookName() {
-        return bookName;
-    }
-
-    public String getBookAuthor() {
-        return bookAuthor;
-    }
-
-    public String getYearPublished() {
-        return yearPublished;
-    }
-
     @Override
     public boolean hasTitle(String title) {
         return bookName.equalsIgnoreCase(title);
@@ -31,6 +19,6 @@ public class Book implements LibraryItem {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-20s %-6s", getBookName(), getBookAuthor(), getYearPublished());
+        return String.format("%-20s %-20s %-6s", bookName, bookAuthor, yearPublished);
     }
 }
