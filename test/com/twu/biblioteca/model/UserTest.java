@@ -8,20 +8,6 @@ import static org.junit.Assert.assertEquals;
 public class UserTest {
 
     @Test
-    public void shouldBeAbleToTellItsRoleIfItIsNormalUser() {
-        User user = new User("123-1234", "12345", "user");
-
-        assertEquals("user", user.getRole());
-    }
-
-    @Test
-    public void shouldBeAbleToTellItsRoleIfItIsAdmin() {
-        User user = new User("123-1234", "12345", "admin");
-
-        assertEquals("admin", user.getRole());
-    }
-
-    @Test
     public void shouldBeAbleToAuthenticate() {
         User user = new User("123-1234", "12345", "admin");
 

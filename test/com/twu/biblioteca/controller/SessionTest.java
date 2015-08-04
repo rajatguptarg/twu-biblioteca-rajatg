@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertNotEquals;
 
-public class AuthenticatorTest {
+public class SessionTest {
 
     @Test
     public void shouldBeAbleToAuthenticateLoginInformation() {
@@ -16,8 +16,8 @@ public class AuthenticatorTest {
         List<User> registeredUser = new ArrayList<User>();
 
         registeredUser.add(user);
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        assertNotEquals(null, authenticator.loginUser("123-1234", "12345"));
+        assertNotEquals(null, session.login("123-1234", "12345"));
     }
 }

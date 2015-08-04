@@ -1,6 +1,6 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.controller.Authenticator;
+import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.LibraryItem;
 import com.twu.biblioteca.model.User;
@@ -38,9 +38,9 @@ public class ViewTest {
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
         List<User> registeredUser = new ArrayList<User>();
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        View view = new View(menu, bookSection, movieSection, authenticator);
+        View view = new View(menu, bookSection, movieSection, session);
 
         view.displayWelcomeMessage();
 
@@ -57,9 +57,9 @@ public class ViewTest {
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
         List<User> registeredUser = new ArrayList<User>();
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        View view = new View(menu, bookSection, movieSection, authenticator);
+        View view = new View(menu, bookSection, movieSection, session);
 
         view.displayListOfAvailableBooks();
 
@@ -76,9 +76,9 @@ public class ViewTest {
         Library movieSection = Mockito.mock(Library.class);
 
         List<User> registeredUser = new ArrayList<User>();
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        View view = new View(menu, bookSection, movieSection, authenticator);
+        View view = new View(menu, bookSection, movieSection, session);
 
         view.displayListOfAvailableMovies();
 
@@ -97,9 +97,9 @@ public class ViewTest {
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
         List<User> registeredUser = new ArrayList<User>();
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        View view = new View(menu, bookSection, movieSection, authenticator);
+        View view = new View(menu, bookSection, movieSection, session);
 
         view.displayErrorMessage();
 
@@ -116,9 +116,9 @@ public class ViewTest {
         Library movieSection = Mockito.mock(Library.class);
 
         List<User> registeredUser = new ArrayList<User>();
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        View view = new View(menu, bookSection, movieSection, authenticator);
+        View view = new View(menu, bookSection, movieSection, session);
 
         view.displayListOfCheckedOutMovies();
 
@@ -135,9 +135,9 @@ public class ViewTest {
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
         List<User> registeredUser = new ArrayList<User>();
-        Authenticator authenticator = new Authenticator(registeredUser);
+        Session session = new Session(registeredUser);
 
-        View view = new View(menu, bookSection, movieSection, authenticator);
+        View view = new View(menu, bookSection, movieSection, session);
 
         view.displayListOfCheckedOutBooks();
 

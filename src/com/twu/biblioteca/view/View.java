@@ -1,6 +1,6 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.controller.Authenticator;
+import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.LibraryItem;
 import com.twu.biblioteca.model.User;
@@ -15,18 +15,18 @@ public class View {
     private Library bookSection;
     private Library movieSection;
     private User user;
-    private Authenticator authenticator;
+    private Session session;
 
-    public View(Menu menu, Library bookSection, Library movieSection, Authenticator authenticator) {
+    public View(Menu menu, Library bookSection, Library movieSection, Session session) {
         this.menu = menu;
         this.bookSection = bookSection;
         this.movieSection = movieSection;
-        this.authenticator = authenticator;
+        this.session = session;
         this.user = null;
     }
 
     public void displayAvailableMenuToUser() {
-        if (user.getRole().equals("admin")) {
+        if (user.isAdminUser()) {
             System.out.println(menu.availableOptionsToAdmin());
         }
         else {
@@ -48,13 +48,13 @@ public class View {
         System.out.print("\nEnter Library Number: \n");
         String libraryNumber = getString();
         String password = readPassword();
-        user = authenticator.loginUser(libraryNumber, password);
+        user = session.login(libraryNumber, password);
         return loginStatus();
     }
 
     private boolean loginStatus() {
         if (user != null)
-            return (user.getRole().equals("admin") || user.getRole().equals("user"));
+            return (user.isAdminUser() || user.isNormalUser());
         return false;
     }
 

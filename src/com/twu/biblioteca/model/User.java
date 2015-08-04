@@ -1,6 +1,9 @@
 package com.twu.biblioteca.model;
 
 
+import com.twu.biblioteca.Constants;
+
+
 public class User {
     private String libraryNumber;
     private String password;
@@ -12,8 +15,12 @@ public class User {
         this.role = role;
     }
 
-    public String getRole() {
-        return role;
+    public boolean isAdminUser() {
+        return (role.equals(Constants.ADMIN));
+    }
+
+    public boolean isNormalUser() {
+        return (role.equals(Constants.USER));
     }
 
     public boolean authenticate(String libraryNumber, String password) {

@@ -4,14 +4,14 @@ import com.twu.biblioteca.model.User;
 
 import java.util.List;
 
-public class Authenticator {
+public class Session {
     private List<User> registeredUser;
 
-    public Authenticator(List<User> registeredUser) {
+    public Session(List<User> registeredUser) {
         this.registeredUser = registeredUser;
     }
 
-    public User loginUser(String libraryNumber, String password) {
+    public User login(String libraryNumber, String password) {
         for (User user : registeredUser) {
             if (user.authenticate(libraryNumber, password)) {
                 return user;
