@@ -1,9 +1,11 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.controller.Authenticator;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.LibraryItem;
 import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.view.Menu;
 import com.twu.biblioteca.view.View;
 
@@ -37,7 +39,14 @@ public class Main {
 
         Library bookSection = new Library(bookList, checkedOutBookList);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> userList = new ArrayList<User>();
+
+        userList.add(new User("123-1234", "12345", "admin"));
+        userList.add(new User("123-1235", "12345", "user"));
+
+        Authenticator authenticator = new Authenticator(userList);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
 
         bibliotecaApp.run();

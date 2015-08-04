@@ -12,7 +12,7 @@ public class BibliotecaApp {
 
     public void run() {
         view.displayWelcomeMessage();
-        while (true) {
+        while (view.initiateLogin()) {
             view.displayAvailableOptionsToUser();
             int option = view.chooseOption();
             executeOperation(option);

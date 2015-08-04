@@ -1,7 +1,9 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Authenticator;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.LibraryItem;
+import com.twu.biblioteca.model.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +37,10 @@ public class ViewTest {
         Library bookSection = new Library(bookList, checkedOutBookList);
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> registeredUser = new ArrayList<User>();
+        Authenticator authenticator = new Authenticator(registeredUser);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
 
         view.displayWelcomeMessage();
 
@@ -51,7 +56,10 @@ public class ViewTest {
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> registeredUser = new ArrayList<User>();
+        Authenticator authenticator = new Authenticator(registeredUser);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
 
         view.displayListOfAvailableBooks();
 
@@ -67,7 +75,10 @@ public class ViewTest {
         Library bookSection = new Library(bookList, checkedOutBookList);
         Library movieSection = Mockito.mock(Library.class);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> registeredUser = new ArrayList<User>();
+        Authenticator authenticator = new Authenticator(registeredUser);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
 
         view.displayListOfAvailableMovies();
 
@@ -85,11 +96,14 @@ public class ViewTest {
         Library bookSection = new Library(bookList, checkedOutBookList);
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> registeredUser = new ArrayList<User>();
+        Authenticator authenticator = new Authenticator(registeredUser);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
 
         view.displayErrorMessage();
 
-        assertEquals("Select a valid option!\n", outContent.toString());
+        assertEquals("Select a valid option!\n\n", outContent.toString());
     }
 
     @Test
@@ -101,7 +115,10 @@ public class ViewTest {
         Library bookSection = new Library(bookList, checkedOutBookList);
         Library movieSection = Mockito.mock(Library.class);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> registeredUser = new ArrayList<User>();
+        Authenticator authenticator = new Authenticator(registeredUser);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
 
         view.displayListOfCheckedOutMovies();
 
@@ -117,7 +134,10 @@ public class ViewTest {
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = new Library(movieList, movieListCheckedOut);
 
-        View view = new View(menu, bookSection, movieSection);
+        List<User> registeredUser = new ArrayList<User>();
+        Authenticator authenticator = new Authenticator(registeredUser);
+
+        View view = new View(menu, bookSection, movieSection, authenticator);
 
         view.displayListOfCheckedOutBooks();
 

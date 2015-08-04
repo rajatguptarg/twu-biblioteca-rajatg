@@ -2,6 +2,7 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.LibraryItem;
+import com.twu.biblioteca.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -28,8 +29,9 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
+        User user = new User("123-1234", "12345", "user");
 
-        library.performCheckOut("my book");
+        library.performCheckOut("my book", user);
 
         assertEquals(1, library.listCheckedOutItems().size());
     }
@@ -40,8 +42,9 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
+        User user = new User("123-1234", "12345", "user");
 
-        assertEquals(true, library.performCheckOut("my book"));
+        assertEquals(true, library.performCheckOut("my book", user));
     }
 
     @Test
@@ -50,10 +53,11 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
+        User user = new User("123-1234", "12345", "user");
 
-        library.performCheckOut("my book");
+        library.performCheckOut("my book", user);
 
-        assertEquals(true, library.performReturn("my book"));
+        assertEquals(true, library.performReturn("my book", user));
     }
 
     @Test
@@ -62,7 +66,8 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
+        User user = new User("123-1234", "12345", "user");
 
-        assertEquals(false, library.performReturn("my book"));
+        assertEquals(false, library.performReturn("my book", user));
     }
 }

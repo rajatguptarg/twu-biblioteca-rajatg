@@ -5,4 +5,6 @@ public interface LibraryItem {
     boolean hasTitle(String title);
 
     String toString();
+
+    boolean issueTo(User user);
 }

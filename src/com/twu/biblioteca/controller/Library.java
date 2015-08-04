@@ -1,6 +1,7 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.LibraryItem;
+import com.twu.biblioteca.model.User;
 
 import java.util.List;
 
@@ -22,20 +23,20 @@ public class Library {
         return checkedOutItems;
     }
 
-    public boolean performCheckOut(String itemName) {
+    public boolean performCheckOut(String itemName, User user) {
         LibraryItem requiredItem = this.searchItemByName(itemName, availableItems);
         if (requiredItem == null || (checkedOutItems.contains(requiredItem))) {
             return false;
         }
-        return (checkedOutItems.add(requiredItem) && availableItems.remove(requiredItem));
+        return (checkedOutItems.add(requiredItem) && availableItems.remove(requiredItem) && requiredItem.issueTo(user));
     }
 
-    public boolean performReturn(String itemName) {
+    public boolean performReturn(String itemName, User user) {
         LibraryItem requiredItem = this.searchItemByName(itemName, checkedOutItems);
         if (requiredItem == null || availableItems.contains(requiredItem)) {
             return false;
         }
-        return (availableItems.add(requiredItem) && checkedOutItems.remove(requiredItem));
+        return (availableItems.add(requiredItem) && checkedOutItems.remove(requiredItem) && requiredItem.issueTo(user));
     }
 
     private LibraryItem searchItemByName(String itemName, List<LibraryItem> availableItems) {

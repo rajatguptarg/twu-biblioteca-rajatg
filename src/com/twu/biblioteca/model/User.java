@@ -1,5 +1,6 @@
 package com.twu.biblioteca.model;
 
+
 public class User {
     private String libraryNumber;
     private String password;
@@ -11,15 +12,11 @@ public class User {
         this.role = role;
     }
 
-    public String getLibraryNumber() {
-        return libraryNumber;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public String getRole() {
         return role;
+    }
+
+    public boolean authenticate(String libraryNumber, String password) {
+        return this.libraryNumber.equals(libraryNumber) && this.password.equals(password);
     }
 }
