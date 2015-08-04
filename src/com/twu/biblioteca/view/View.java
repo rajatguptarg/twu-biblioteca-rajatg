@@ -25,6 +25,15 @@ public class View {
         this.user = null;
     }
 
+    public void displayAvailableMenuToUser() {
+        if (user.getRole().equals("admin")) {
+            System.out.println(menu.availableOptionsToAdmin());
+        }
+        else {
+            System.out.println(menu.availableOptionsToUser());
+        }
+    }
+
     private String readPassword() {
         Console console = System.console();
         if (console == null) {
@@ -65,10 +74,6 @@ public class View {
 
     public void displayWelcomeMessage() {
         System.out.println(menu.returnWelcomeMessage());
-    }
-
-    public void displayAvailableOptionsToUser() {
-        System.out.println(menu.toString());
     }
 
     public void displayErrorMessage() {

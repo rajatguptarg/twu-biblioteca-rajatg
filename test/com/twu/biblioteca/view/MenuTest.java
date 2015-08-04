@@ -16,11 +16,29 @@ public class MenuTest {
     }
 
     @Test
-    public void menuShouldReturnListOfOperations() {
+    public void menuShouldReturnListOfOperationsToUser() {
         Menu menu = new Menu();
         String expectedOptions =
                 "\n** MAIN MENU **\n" +
                 "================\n" +
+                "0. Quit\n" +
+                "1. List Books\n" +
+                "2. Check-Out Book\n" +
+                "3. Return Book\n" +
+                "4. List Movies\n" +
+                "5. Check-Out Movie\n" +
+                "6. Return Movie\n";
+
+        assertEquals(expectedOptions, menu.availableOptionsToUser());
+    }
+
+    @Test
+    public void menuShouldReturnListOfOperationsToAdmin() {
+        Menu menu = new Menu();
+        String expectedOptions =
+                "\n** MAIN MENU **\n" +
+                "================\n" +
+                "0. Quit\n" +
                 "1. List Books\n" +
                 "2. Check-Out Book\n" +
                 "3. Return Book\n" +
@@ -28,9 +46,8 @@ public class MenuTest {
                 "5. Check-Out Movie\n" +
                 "6. Return Movie\n" +
                 "7. Display Checked Out Books\n" +
-                "8. Display Checked Out Movies\n" +
-                "0. Quit\n";
+                "8. Display Checked Out Movies\n";
 
-        assertEquals(expectedOptions, menu.toString());
+        assertEquals(expectedOptions, menu.availableOptionsToAdmin());
     }
 }

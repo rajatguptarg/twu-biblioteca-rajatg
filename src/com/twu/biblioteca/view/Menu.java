@@ -14,20 +14,26 @@ public class Menu {
         return welcomeMessage;
     }
 
-    @Override
-    public String toString() {
+    public String availableOptionsToUser() {
         optionsList = "";
         optionsList += "\n** MAIN MENU **\n";
         optionsList += "================\n";
+        optionsList += "0. Quit\n";
         optionsList += "1. List Books\n";
         optionsList += "2. Check-Out Book\n";
         optionsList += "3. Return Book\n";
         optionsList += "4. List Movies\n";
         optionsList += "5. Check-Out Movie\n";
         optionsList += "6. Return Movie\n";
+
+        return optionsList;
+    }
+
+    public String availableOptionsToAdmin() {
+        optionsList = "";
+        optionsList += availableOptionsToUser();
         optionsList += "7. Display Checked Out Books\n";
         optionsList += "8. Display Checked Out Movies\n";
-        optionsList += "0. Quit\n";
 
         return optionsList;
     }
