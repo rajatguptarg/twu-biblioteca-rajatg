@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.view.View;
-
 
 public class BibliotecaApp {
     private View view;
@@ -12,8 +10,8 @@ public class BibliotecaApp {
 
     public void run() {
         view.displayWelcomeMessage();
-        while (view.initiateLogin()) {
-            view.displayAvailableMenuToUser();
+        while (true) {
+            view.displayAvailableOptionsToUser();
             int option = view.chooseOption();
             executeOperation(option);
         }
@@ -22,28 +20,13 @@ public class BibliotecaApp {
     void executeOperation(int option) {
         switch (option) {
             case 1:
-                view.displayListOfAvailableBooks();
+                view.displayListOfBooks();
                 break;
             case 2:
-                view.showStatusOfCheckOutBook();
+                view.showStatusOfCheckOut();
                 break;
             case 3:
                 view.showReturnBookStatus();
-                break;
-            case 4:
-                view.displayListOfAvailableMovies();
-                break;
-            case 5:
-                view.showStatusOfCheckOutMovie();
-                break;
-            case 6:
-                view.showReturnMovieStatus();
-                break;
-            case 7:
-                view.displayListOfCheckedOutBooks();
-                break;
-            case 8:
-                view.displayListOfCheckedOutMovies();
                 break;
             case 0:
                 System.exit(0);
