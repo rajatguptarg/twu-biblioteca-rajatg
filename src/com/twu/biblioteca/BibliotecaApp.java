@@ -1,55 +1,16 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.view.View;
+import com.twu.biblioteca.view.Welcome;
 
 
 public class BibliotecaApp {
-    private View view;
+    private Welcome welcome;
 
-    public BibliotecaApp(View view) {
-        this.view = view;
+    public BibliotecaApp(Welcome welcome) {
+        this.welcome = welcome;
     }
 
     public void run() {
-        view.displayWelcomeMessage();
-        while (view.initiateLogin()) {
-            view.displayAvailableMenuToUser();
-            int option = view.chooseOption();
-            executeOperation(option);
-        }
-    }
-
-    void executeOperation(int option) {
-        switch (option) {
-            case 1:
-                view.displayListOfAvailableBooks();
-                break;
-            case 2:
-                view.showStatusOfCheckOutBook();
-                break;
-            case 3:
-                view.showReturnBookStatus();
-                break;
-            case 4:
-                view.displayListOfAvailableMovies();
-                break;
-            case 5:
-                view.showStatusOfCheckOutMovie();
-                break;
-            case 6:
-                view.showReturnMovieStatus();
-                break;
-            case 7:
-                view.displayListOfCheckedOutBooks();
-                break;
-            case 8:
-                view.displayListOfCheckedOutMovies();
-                break;
-            case 0:
-                System.exit(0);
-            default:
-                view.displayErrorMessage();
-                break;
-        }
+        welcome.run();
     }
 }

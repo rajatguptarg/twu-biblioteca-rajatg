@@ -20,7 +20,7 @@ public class LibraryTest {
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
 
-        assertEquals(1, library.listAvailableItems().size());
+        assertEquals(true, library.listAvailableItems().length() > 0);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class LibraryTest {
 
         library.performCheckOut("my book", user);
 
-        assertEquals(1, library.listCheckedOutItems().size());
+        assertEquals(true, library.listCheckedOutItems().length() > 0);
     }
 
     @Test

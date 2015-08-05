@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.LibraryItem;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.User;
-import com.twu.biblioteca.view.Menu;
-import com.twu.biblioteca.view.View;
+import com.twu.biblioteca.view.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +46,23 @@ public class Main {
 
         Session session = new Session(userList);
 
-        View view = new View(menu, bookSection, movieSection, session);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+        Dispatcher dispatcher = new Dispatcher();
+        Login login = new Login();
+        Welcome welcome = new Welcome();
+        MenuView menuView = new MenuView();
+        CheckIn checkIn = new CheckIn();
+        CheckOut checkOut = new CheckOut();
+        ListAll listAll = new ListAll();
+
+        welcome.initiate(login);
+        login.initiate(session, menuView, welcome);
+        menuView.initiate(dispatcher);
+        checkIn.initiate(bookSection, movieSection, menuView);
+        checkOut.initiate(bookSection, movieSection, menuView);
+        listAll.initiate(bookSection, movieSection, menuView);
+        dispatcher.initiate(listAll, menuView, checkOut, checkIn, welcome);
+
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcome);
 
         bibliotecaApp.run();
     }

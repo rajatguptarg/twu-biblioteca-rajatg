@@ -2,11 +2,9 @@ package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.controller.Library;
-import com.twu.biblioteca.model.LibraryItem;
 import com.twu.biblioteca.model.User;
 
 import java.io.Console;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -84,54 +82,38 @@ public class View {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<LibraryItem> books;
-        books = bookSection.listAvailableItems();
-        for (LibraryItem book : books) {
-            System.out.println(book.toString());
-        }
+        System.out.println(bookSection.listAvailableItems());
     }
 
     public void displayListOfAvailableMovies() {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
-        List<LibraryItem> movies;
-        movies = movieSection.listAvailableItems();
-        for (LibraryItem movie : movies) {
-            System.out.println(movie.toString());
-        }
+        System.out.println(movieSection.listAvailableItems());
     }
 
     public void displayListOfCheckedOutMovies() {
         String header = String.format("%-20s %-6s %-20s %-5s", "MOVIE", "YEAR", "DIRECTOR", "RATING");
         System.out.println("\n" + header);
         System.out.println("==========================================================");
-        List<LibraryItem> movies;
-        movies = movieSection.listCheckedOutItems();
-        for (LibraryItem movie : movies) {
-            System.out.println(movie.toString());
-        }
+        System.out.println(movieSection.listCheckedOutItems());
     }
 
     public void displayListOfCheckedOutBooks() {
         String header = String.format("%-20s %-20s %-6s", "BOOK", "AUTHOR", "YEAR");
         System.out.println("\n"+header);
         System.out.println("==================================================");
-        List<LibraryItem> books;
-        books = bookSection.listCheckedOutItems();
-        for (LibraryItem book : books) {
-            System.out.println(book.toString());
-        }
+        System.out.println(bookSection.listCheckedOutItems());
     }
 
     public void showStatusOfCheckOutBook() {
         System.out.print("Enter Name of Book: \n");
         String nameOfBook = getString();
         if (bookSection.performCheckOut(nameOfBook, user)) {
-            System.out.println("Thank you! Enjoy the book.\n");
+            System.out.println("Thank you! Enjoy the execute.\n");
         }
         else {
-            System.out.println("That book is not available.\n");
+            System.out.println("That execute is not available.\n");
         }
     }
 
@@ -150,10 +132,10 @@ public class View {
         System.out.print("Enter Name of Book: \n");
         String nameOfBook = getString();
         if (bookSection.performReturn(nameOfBook, user)) {
-            System.out.println("Thank you for returning the book.\n");
+            System.out.println("Thank you for returning the execute.\n");
         }
         else {
-            System.out.println("That is not a valid book to return.\n");
+            System.out.println("That is not a valid execute to return.\n");
         }
     }
 
