@@ -9,7 +9,7 @@ public class Welcome {
     private Login login;
     private Input input;
 
-    public void initiate(Login login, Input input) {
+    public Welcome(Login login, Input input) {
         this.welcomeTitle = "HELLO..!! WELCOME TO BIBLIOTECA..!!\n\n";
         this.availableOptions = "";
         this.login = login;

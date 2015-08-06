@@ -2,17 +2,18 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.view.Welcome;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.mockito.Mockito;
 
 
 public class BibliotecaAppTest {
 
     @Test
     public void applicationShouldDisplayListOfBooks() {
-        Welcome welcome = new Welcome();
+        Welcome welcome = Mockito.mock(Welcome.class);
         BibliotecaApp bibliotecaApp = new BibliotecaApp(welcome);
 
-        assertEquals(true, true);
+        bibliotecaApp.run();
+
+        Mockito.verify(welcome).run();
     }
 }

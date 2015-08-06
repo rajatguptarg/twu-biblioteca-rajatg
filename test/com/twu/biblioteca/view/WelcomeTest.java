@@ -11,9 +11,8 @@ public class WelcomeTest {
     public void shouldBeAbleToGoToLoginView() {
         Input input = Mockito.mock(Input.class);
         Login login = Mockito.mock(Login.class);
-        Welcome welcome = new Welcome();
+        Welcome welcome = new Welcome(login, input);
 
-        welcome.initiate(login, input);
         Mockito.when(input.getNumber()).thenReturn(1);
 
         welcome.run();

@@ -51,13 +51,12 @@ public class Main {
 
         Dispatcher dispatcher = new Dispatcher();
         Login login = new Login(session, input, dispatcher);
-        Welcome welcome = new Welcome();
+        Welcome welcome = new Welcome(login, input);
         Menu menu = new Menu(dispatcher, input);
         CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
         CheckOut checkOut = new CheckOut(bookSection, movieSection, dispatcher, input);
         ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
 
-        welcome.initiate(login, input);
         dispatcher.initiate(listAll, menu, checkOut, checkIn, welcome);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(welcome);
