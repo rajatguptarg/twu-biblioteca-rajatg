@@ -1,5 +1,6 @@
 package com.twu.biblioteca.model;
 
+
 public class Movie implements LibraryItem {
     private String movieName;
     private String yearReleased;

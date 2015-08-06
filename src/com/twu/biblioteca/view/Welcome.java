@@ -1,6 +1,8 @@
 package com.twu.biblioteca.view;
 
 
+import com.twu.biblioteca.helper.Input;
+
 public class Welcome {
     private String welcomeTitle;
     private String availableOptions;

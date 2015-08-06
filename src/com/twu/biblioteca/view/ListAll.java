@@ -3,6 +3,7 @@ package com.twu.biblioteca.view;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.User;
 
+
 public class ListAll {
     private Library bookSection;
     private Library movieSection;

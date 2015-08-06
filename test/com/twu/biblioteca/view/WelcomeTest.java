@@ -1,7 +1,9 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.helper.Input;
 import org.junit.Test;
 import org.mockito.Mockito;
+
 
 public class WelcomeTest {
 

@@ -1,7 +1,8 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.Constants;
+import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.helper.Input;
 import com.twu.biblioteca.model.User;
 import org.junit.Test;
 import org.mockito.Mockito;

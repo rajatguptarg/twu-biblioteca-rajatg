@@ -2,11 +2,11 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.User;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertNotEquals;
+
 
 public class SessionTest {
 

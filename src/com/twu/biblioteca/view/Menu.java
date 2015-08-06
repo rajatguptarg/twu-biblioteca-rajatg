@@ -1,9 +1,9 @@
 package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.controller.Dispatcher;
+import com.twu.biblioteca.helper.Input;
 import com.twu.biblioteca.model.User;
 
-import java.util.Scanner;
 
 public class Menu {
     private String optionsList;
@@ -50,7 +50,7 @@ public class Menu {
 
     private boolean validate(int userChoice, User user) {
         if (user.isNormalUser()) {
-            return (userChoice > -1 && userChoice < 8);
+            return (userChoice > -1 && userChoice < 7);
         }
         else {
             return (userChoice > -1 && userChoice < 10);

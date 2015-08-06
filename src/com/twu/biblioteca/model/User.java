@@ -1,7 +1,6 @@
 package com.twu.biblioteca.model;
 
-
-import com.twu.biblioteca.Constants;
+import com.twu.biblioteca.helper.Constants;
 
 
 public class User {
