@@ -14,10 +14,9 @@ public class MenuTest {
     public void shouldBeAbleToDispatchUserChoice() {
         Dispatcher dispatcher  = Mockito.mock(Dispatcher.class);
         Input input = Mockito.mock(Input.class);
-        Menu menu = new Menu();
+        Menu menu = new Menu(dispatcher, input);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
-        menu.initiate(dispatcher, input);
         Mockito.when(input.getNumber()).thenReturn(1);
 
         menu.run(user);

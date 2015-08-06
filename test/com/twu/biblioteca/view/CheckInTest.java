@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.helper.Input;
@@ -12,13 +13,12 @@ public class CheckInTest {
 
     @Test
     public void shouldBeAbleToPerformReturnOfBook() {
-        CheckIn checkIn = new CheckIn();
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         Input input = Mockito.mock(Input.class);
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
         Menu menu = Mockito.mock(Menu.class);
-
-        checkIn.initiate(bookSection, movieSection, menu, input);
+        CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
         Mockito.when(input.getString()).thenReturn("great rajat");
@@ -29,13 +29,11 @@ public class CheckInTest {
 
     @Test
     public void shouldBeAbleToPerformReturnOfMovie() {
-        CheckIn checkIn = new CheckIn();
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         Input input = Mockito.mock(Input.class);
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
-        Menu menu = Mockito.mock(Menu.class);
-
-        checkIn.initiate(bookSection, movieSection, menu, input);
+        CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
         Mockito.when(input.getString()).thenReturn("xxx");

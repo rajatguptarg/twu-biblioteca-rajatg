@@ -50,19 +50,14 @@ public class Main {
         Session session = new Session(userList);
 
         Dispatcher dispatcher = new Dispatcher();
-        Login login = new Login();
+        Login login = new Login(session, input, dispatcher);
         Welcome welcome = new Welcome();
-        Menu menu = new Menu();
-        CheckIn checkIn = new CheckIn();
-        CheckOut checkOut = new CheckOut();
-        ListAll listAll = new ListAll();
+        Menu menu = new Menu(dispatcher, input);
+        CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
+        CheckOut checkOut = new CheckOut(bookSection, movieSection, dispatcher, input);
+        ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
 
         welcome.initiate(login, input);
-        login.initiate(session, menu, welcome, input);
-        menu.initiate(dispatcher, input);
-        checkIn.initiate(bookSection, movieSection, menu, input);
-        checkOut.initiate(bookSection, movieSection, menu, input);
-        listAll.initiate(bookSection, movieSection, menu);
         dispatcher.initiate(listAll, menu, checkOut, checkIn, welcome);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(welcome);

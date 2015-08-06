@@ -1,6 +1,8 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.helper.Input;
 import com.twu.biblioteca.model.User;
 
@@ -8,13 +10,13 @@ import com.twu.biblioteca.model.User;
 public class CheckIn {
     private Library bookSection;
     private Library movieSection;
-    private Menu menu;
+    private Dispatcher dispatcher;
     private Input input;
 
-    public void initiate(Library bookSection, Library movieSection, Menu menu, Input input) {
+    public CheckIn(Library bookSection, Library movieSection, Dispatcher dispatcher, Input input) {
         this.bookSection = bookSection;
         this.movieSection = movieSection;
-        this.menu = menu;
+        this.dispatcher = dispatcher;
         this.input = input;
     }
 
@@ -27,7 +29,7 @@ public class CheckIn {
         else {
             System.out.println("That is not a valid execute to return.\n");
         }
-        menu.run(user);
+        dispatcher.start(Constants.MENU_RUN, user);
     }
 
     public void performCheckInMovie(User user) {
@@ -39,6 +41,6 @@ public class CheckIn {
         else {
             System.out.println("That is not valid movie to return.\n");
         }
-        menu.run(user);
+        dispatcher.start(Constants.MENU_RUN, user);
     }
 }

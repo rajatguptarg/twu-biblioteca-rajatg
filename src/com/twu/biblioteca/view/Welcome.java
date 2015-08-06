@@ -30,6 +30,10 @@ public class Welcome {
                 break;
             case 2:
                 System.exit(0);
+                break;
+            default:
+                System.out.print("Invalid Choice.\n");
+                run();
         }
     }
 

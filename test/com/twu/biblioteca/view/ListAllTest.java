@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.User;
@@ -11,13 +12,12 @@ public class ListAllTest {
 
     @Test
     public void shouldBeAbleToDisplayListOfAvailableBooks() {
-        ListAll listAll = new ListAll();
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
-        Menu menu = Mockito.mock(Menu.class);
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
+        ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
-        listAll.initiate(bookSection, movieSection, menu);
         listAll.availableBooks(user);
 
         Mockito.verify(bookSection).listAvailableItems();
@@ -25,13 +25,12 @@ public class ListAllTest {
 
     @Test
     public void shouldBeAbleToDisplayListOfAvailableMovies() {
-        ListAll listAll = new ListAll();
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
-        Menu menu = Mockito.mock(Menu.class);
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
+        ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
-        listAll.initiate(bookSection, movieSection, menu);
         listAll.availableMovies(user);
 
         Mockito.verify(movieSection).listAvailableItems();
@@ -39,13 +38,12 @@ public class ListAllTest {
 
     @Test
     public void shouldBeAbleToDisplayListOfCheckedOutBooks() {
-        ListAll listAll = new ListAll();
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
-        Menu menu = Mockito.mock(Menu.class);
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
+        ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
-        listAll.initiate(bookSection, movieSection, menu);
         listAll.checkedOutBooks(user);
 
         Mockito.verify(bookSection).listCheckedOutItems();
@@ -53,13 +51,12 @@ public class ListAllTest {
 
     @Test
     public void shouldBeAbleToDisplayListOfCheckedOutMovies() {
-        ListAll listAll = new ListAll();
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
-        Menu menu = Mockito.mock(Menu.class);
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
+        ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
         User user = new User("123-1234", "12345", Constants.ADMIN);
 
-        listAll.initiate(bookSection, movieSection, menu);
         listAll.checkedOutMovies(user);
 
         Mockito.verify(movieSection).listCheckedOutItems();

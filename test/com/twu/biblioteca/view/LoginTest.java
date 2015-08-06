@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.helper.Input;
@@ -12,20 +13,18 @@ public class LoginTest {
 
     @Test
     public void shouldBeAbleToLogin() {
-        Login login = new Login();
         Session session = Mockito.mock(Session.class);
-        Menu menu = Mockito.mock(Menu.class);
-        Welcome welcome = Mockito.mock(Welcome.class);
         Input input = Mockito.mock(Input.class);
+        Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         User user = new User("123-1234", "12345", Constants.ADMIN);
+        Login login = new Login(session, input, dispatcher);
 
-        login.initiate(session, menu, welcome, input);
         Mockito.when(session.login("123-1234", "12345")).thenReturn(user);
         Mockito.when(input.getString()).thenReturn("123-1234");
         Mockito.when(input.getPassword()).thenReturn("12345");
 
         login.performLogin();
 
-        Mockito.verify(menu).run(user);
+        Mockito.verify(dispatcher).start(Constants.MENU_RUN, user);
     }
 }

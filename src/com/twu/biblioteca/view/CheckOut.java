@@ -1,6 +1,8 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.helper.Input;
 import com.twu.biblioteca.model.User;
 
@@ -8,14 +10,14 @@ import com.twu.biblioteca.model.User;
 public class CheckOut {
     private Library bookSection;
     private Library movieSection;
-    private Menu menu;
+    private Dispatcher dispatcher;
     private Input input;
 
-    public void initiate(Library bookSection, Library movieSection, Menu menu, Input input) {
+    public CheckOut(Library bookSection, Library movieSection, Dispatcher dispatcher, Input input) {
         this.bookSection = bookSection;
         this.movieSection = movieSection;
-        this.menu = menu;
         this.input = input;
+        this.dispatcher = dispatcher;
     }
 
     public void performCheckOutBook(User user) {
@@ -27,7 +29,7 @@ public class CheckOut {
         else {
             System.out.println("That book is not available.\n");
         }
-        menu.run(user);
+        dispatcher.start(Constants.MENU_RUN, user);
     }
 
     public void performCheckOutMovie(User user) {
@@ -39,6 +41,6 @@ public class CheckOut {
         else {
             System.out.println("That movie is not available.\n");
         }
-        menu.run(user);
+        dispatcher.start(Constants.MENU_RUN, user);
     }
 }

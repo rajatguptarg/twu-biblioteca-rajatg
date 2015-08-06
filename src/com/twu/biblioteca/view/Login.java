@@ -1,6 +1,8 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.controller.Session;
+import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.helper.Input;
 import com.twu.biblioteca.model.User;
 
@@ -8,15 +10,13 @@ import com.twu.biblioteca.model.User;
 public class Login {
     private Session session;
     private User user;
-    private Menu menu;
-    private Welcome welcome;
     private Input input;
+    private Dispatcher dispatcher;
 
-    public void initiate(Session session, Menu menu, Welcome welcome, Input input) {
+    public Login(Session session, Input input, Dispatcher dispatcher) {
         this.session = session;
-        this.menu = menu;
-        this.welcome = welcome;
         this.input = input;
+        this.dispatcher = dispatcher;
         this.user = null;
     }
 
@@ -36,11 +36,11 @@ public class Login {
 
     public void performLogin() {
         if (initiateLogin()) {
-            menu.run(user);
+            dispatcher.start(Constants.MENU_RUN, user);
         }
         else {
             System.out.print("Invalid Login Credentials.");
-            welcome.run();
+            dispatcher.start(Constants.WELCOME_RUN, user);
         }
     }
 }

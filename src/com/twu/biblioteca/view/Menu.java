@@ -10,10 +10,9 @@ public class Menu {
     private Dispatcher dispatcher;
     private Input input;
 
-    public void initiate(Dispatcher dispatcher, Input input) {
+    public Menu(Dispatcher dispatcher, Input input) {
         this.input = input;
         this.dispatcher = dispatcher;
-
     }
 
     private String availableOptionsToUser() {
