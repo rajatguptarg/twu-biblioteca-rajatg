@@ -29,9 +29,17 @@ public class Login {
     private boolean initiateLogin() {
         System.out.print("\nEnter Library Number: \n");
         String libraryNumber = input.getString();
-        String password = input.getPassword();
-        user = session.login(libraryNumber, password);
-        return loginStatus();
+        if (validate(libraryNumber)) {
+            String password = input.getPassword();
+            user = session.login(libraryNumber, password);
+            return loginStatus();
+        }
+        return false;
+    }
+
+    private boolean validate(String libraryNumber) {
+        String[] data = libraryNumber.split("-");
+        return data[0].length() == 3 && data[1].length() == 4;
     }
 
     public void performLogin() {
@@ -39,7 +47,7 @@ public class Login {
             dispatcher.start(Constants.MENU_RUN, user);
         }
         else {
-            System.out.print("Invalid Login Credentials.");
+            System.out.print("Invalid Login Credentials.\n");
             dispatcher.start(Constants.WELCOME_RUN, user);
         }
     }
