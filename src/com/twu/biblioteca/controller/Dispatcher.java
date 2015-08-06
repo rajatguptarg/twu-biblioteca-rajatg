@@ -6,15 +6,15 @@ import com.twu.biblioteca.view.*;
 
 public class Dispatcher {
     private User user;
-    private MenuView menuView;
+    private Menu menu;
     private ListAll listAll;
     private CheckOut checkOut;
     private CheckIn checkIn;
     private Welcome welcome;
 
-    public void initiate(ListAll listAll, MenuView menuView, CheckOut checkOut, CheckIn checkIn, Welcome welcome) {
+    public void initiate(ListAll listAll, Menu menu, CheckOut checkOut, CheckIn checkIn, Welcome welcome) {
         this.listAll = listAll;
-        this.menuView = menuView;
+        this.menu = menu;
         this.checkOut = checkOut;
         this.checkIn = checkIn;
         this.welcome = welcome;
@@ -55,7 +55,7 @@ public class Dispatcher {
                 listAll.checkedOutMovies(user);
                 break;
             default:
-                menuView.run(user);
+                menu.run(user);
         }
     }
 }

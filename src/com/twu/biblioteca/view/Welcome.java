@@ -1,32 +1,19 @@
 package com.twu.biblioteca.view;
 
-import java.util.Scanner;
-
 
 public class Welcome {
     private String welcomeTitle;
     private String availableOptions;
     private Login login;
+    private Input input;
 
-    public void initiate(Login login) {
+    public void initiate(Login login, Input input) {
         this.welcomeTitle = "HELLO..!! WELCOME TO BIBLIOTECA..!!\n\n";
         this.availableOptions = "";
         this.login = login;
+        this.input = input;
     }
 
-    private String getString() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
-
-    private int chooseOption() {
-        System.out.print("Choose Option: \n");
-        try {
-            return Integer.parseInt(getString());
-        } catch (NumberFormatException e) {
-            return -1;
-        }
-    }
     private String availableChoices() {
         availableOptions = "";
         availableOptions += "1. Login\n";
@@ -37,7 +24,7 @@ public class Welcome {
     private void execute(int option) {
         switch (option) {
             case 1:
-                login.run();
+                login.performLogin();
                 break;
             case 2:
                 System.exit(0);
@@ -48,7 +35,7 @@ public class Welcome {
         System.out.print(welcomeTitle);
         System.out.print(availableChoices());
         System.out.print("\nEnter Choice: \n");
-        int option = chooseOption();
+        int option = input.getNumber();
         execute(option);
     }
 }

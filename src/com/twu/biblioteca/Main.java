@@ -15,7 +15,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
 
         List<LibraryItem> movieList = new ArrayList<LibraryItem>();
         List<LibraryItem> movieListCheckedOut = new ArrayList<LibraryItem>();
@@ -39,6 +38,8 @@ public class Main {
 
         Library bookSection = new Library(bookList, checkedOutBookList);
 
+        Input input = new Input();
+
         List<User> userList = new ArrayList<User>();
 
         userList.add(new User("123-1234", "12345", Constants.ADMIN));
@@ -49,18 +50,18 @@ public class Main {
         Dispatcher dispatcher = new Dispatcher();
         Login login = new Login();
         Welcome welcome = new Welcome();
-        MenuView menuView = new MenuView();
+        Menu menu = new Menu();
         CheckIn checkIn = new CheckIn();
         CheckOut checkOut = new CheckOut();
         ListAll listAll = new ListAll();
 
-        welcome.initiate(login);
-        login.initiate(session, menuView, welcome);
-        menuView.initiate(dispatcher);
-        checkIn.initiate(bookSection, movieSection, menuView);
-        checkOut.initiate(bookSection, movieSection, menuView);
-        listAll.initiate(bookSection, movieSection, menuView);
-        dispatcher.initiate(listAll, menuView, checkOut, checkIn, welcome);
+        welcome.initiate(login, input);
+        login.initiate(session, menu, welcome, input);
+        menu.initiate(dispatcher, input);
+        checkIn.initiate(bookSection, movieSection, menu, input);
+        checkOut.initiate(bookSection, movieSection, menu, input);
+        listAll.initiate(bookSection, movieSection, menu);
+        dispatcher.initiate(listAll, menu, checkOut, checkIn, welcome);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(welcome);
 

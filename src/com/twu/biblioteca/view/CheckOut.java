@@ -3,45 +3,41 @@ package com.twu.biblioteca.view;
 import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.model.User;
 
-import java.util.Scanner;
 
 public class CheckOut {
     private Library bookSection;
     private Library movieSection;
-    private MenuView menuView;
+    private Menu menu;
+    private Input input;
 
-    public void initiate(Library bookSection, Library movieSection, MenuView menuView) {
+    public void initiate(Library bookSection, Library movieSection, Menu menu, Input input) {
         this.bookSection = bookSection;
         this.movieSection = movieSection;
-        this.menuView = menuView;
-    }
-
-    private String getString() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        this.menu = menu;
+        this.input = input;
     }
 
     public void performCheckOutBook(User user) {
         System.out.print("Enter Name of Book: \n");
-        String nameOfBook = getString();
+        String nameOfBook = input.getString();
         if (bookSection.performCheckOut(nameOfBook, user)) {
             System.out.println("Thank you! Enjoy the execute.\n");
         }
         else {
-            System.out.println("That execute is not available.\n");
+            System.out.println("That book is not available.\n");
         }
-        menuView.run(user);
+        menu.run(user);
     }
 
     public void performCheckOutMovie(User user) {
         System.out.print("Enter Name of Movie: \n");
-        String nameOfMovie = getString();
+        String nameOfMovie = input.getString();
         if (movieSection.performCheckOut(nameOfMovie, user)) {
             System.out.println("Thank you! Enjoy the movie.\n");
         }
         else {
             System.out.println("That movie is not available.\n");
         }
-        menuView.run(user);
+        menu.run(user);
     }
 }

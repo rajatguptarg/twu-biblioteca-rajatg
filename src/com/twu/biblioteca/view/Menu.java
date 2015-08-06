@@ -1,24 +1,26 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.controller.Dispatcher;
+import com.twu.biblioteca.model.User;
+
+import java.util.Scanner;
 
 public class Menu {
     private String optionsList;
-    private String welcomeMessage;
+    private Dispatcher dispatcher;
+    private Input input;
 
-    public Menu() {
-        this.optionsList = "";
-        this.welcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!";
+    public void initiate(Dispatcher dispatcher, Input input) {
+        this.input = input;
+        this.dispatcher = dispatcher;
+
     }
 
-    public String returnWelcomeMessage() {
-        return welcomeMessage;
-    }
-
-    public String availableOptionsToUser() {
+    private String availableOptionsToUser() {
         optionsList = "";
         optionsList += "\n** MAIN MENU **\n";
         optionsList += "================\n";
-        optionsList += "0. Quit\n";
+        optionsList += "0. Log Out\n";
         optionsList += "1. List Books\n";
         optionsList += "2. Check-Out Book\n";
         optionsList += "3. CheckIn Book\n";
@@ -29,12 +31,47 @@ public class Menu {
         return optionsList;
     }
 
-    public String availableOptionsToAdmin() {
+    private String availableOptionsToAdmin() {
         optionsList = "";
         optionsList += availableOptionsToUser();
         optionsList += "7. Display Checked Out Books\n";
         optionsList += "8. Display Checked Out Movies\n";
 
         return optionsList;
+    }
+
+    private void displayUserMenu() {
+        System.out.print(availableOptionsToUser());
+    }
+
+    private void displayAdminMenu() {
+        System.out.print(availableOptionsToAdmin());
+    }
+
+    private boolean validate(int userChoice, User user) {
+        if (user.isNormalUser()) {
+            return (userChoice > -1 && userChoice < 8);
+        }
+        else {
+            return (userChoice > -1 && userChoice < 10);
+        }
+    }
+
+    public void run(User user) {
+        if (user.isAdminUser()) {
+            displayAdminMenu();
+        }
+        else {
+            displayUserMenu();
+        }
+        System.out.print("Enter your choice: \n");
+        int userChoice = input.getNumber();
+        if (validate(userChoice, user)) {
+            dispatcher.start(userChoice, user);
+        }
+        else {
+            System.out.print("Invalid Choice.\n");
+            run(user);
+        }
     }
 }

@@ -2,36 +2,21 @@ package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.model.User;
-import java.io.Console;
-import java.util.Scanner;
 
 
 public class Login {
     private Session session;
     private User user;
-    private MenuView menu;
+    private Menu menu;
     private Welcome welcome;
+    private Input input;
 
-    public void initiate(Session session, MenuView menu, Welcome welcome) {
+    public void initiate(Session session, Menu menu, Welcome welcome, Input input) {
         this.session = session;
         this.menu = menu;
         this.welcome = welcome;
+        this.input = input;
         this.user = null;
-    }
-
-    private String getString() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
-
-    private String readPassword() {
-        Console console = System.console();
-        if (console == null) {
-            System.out.println("Couldn't get Console instance");
-            System.exit(0);
-        }
-        char passwordArray[] = console.readPassword("Enter your Password: ");
-        return new String(passwordArray);
     }
 
     private boolean loginStatus() {
@@ -42,13 +27,13 @@ public class Login {
 
     private boolean initiateLogin() {
         System.out.print("\nEnter Library Number: \n");
-        String libraryNumber = getString();
-        String password = readPassword();
+        String libraryNumber = input.getString();
+        String password = input.getPassword();
         user = session.login(libraryNumber, password);
         return loginStatus();
     }
 
-    public void run() {
+    public void performLogin() {
         if (initiateLogin()) {
             menu.run(user);
         }

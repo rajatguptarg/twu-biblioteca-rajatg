@@ -22,7 +22,7 @@ public class Movie implements LibraryItem {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-6s %-20s %-5s", movieName, yearReleased, directorName, movieRating);
+        return String.format("%-20s %-6s %-20s %-5s\n", movieName, yearReleased, directorName, movieRating);
     }
 
     @Override
