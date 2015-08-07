@@ -5,8 +5,6 @@ import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.model.User;
 
-import java.util.List;
-
 
 public class ListAll {
     private Library bookSection;

@@ -27,7 +27,7 @@ public class CheckIn {
             System.out.println("Thank you for returning the book.\n");
         }
         else {
-            System.out.println("That is not a valid execute to return.\n");
+            System.out.println("That is not a valid book to return.\n");
         }
         dispatcher.start(Constants.MENU_RUN, user);
     }
