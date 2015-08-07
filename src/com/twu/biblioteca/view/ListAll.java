@@ -5,6 +5,8 @@ import com.twu.biblioteca.controller.Library;
 import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.model.User;
 
+import java.util.List;
+
 
 public class ListAll {
     private Library bookSection;
@@ -54,6 +56,24 @@ public class ListAll {
             System.out.println("\n" + header);
             System.out.println("==========================================================");
             System.out.print(movieSection.listCheckedOutItems());
+        }
+        dispatcher.start(Constants.MENU_RUN, user);
+    }
+
+    public void userDetails(User user) {
+        String header = String.format("%-20s %-20s %-20s %-12s", "LIBRARY NUMBER", "NAME", "EMAIL", "MOBILE");
+        System.out.println("\n" + header);
+        System.out.println("=====================================================================");
+        System.out.println(user);
+        dispatcher.start(Constants.MENU_RUN, user);
+    }
+
+    public void displayUserHavingBooks(User user) {
+        if (user.isAdminUser()) {
+            String header = String.format("%-20s %-20s %-20s %-12s", "LIBRARY NUMBER", "NAME", "EMAIL", "MOBILE");
+            System.out.println("\n" + header);
+            System.out.println("====================================================================");
+            System.out.println(bookSection.returnUsersHavingItems());
         }
         dispatcher.start(Constants.MENU_RUN, user);
     }

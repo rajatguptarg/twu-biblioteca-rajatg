@@ -17,7 +17,7 @@ public class CheckOutTest {
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
         CheckOut checkOut = new CheckOut(bookSection, movieSection, dispatcher, input);
 
 
@@ -33,7 +33,7 @@ public class CheckOutTest {
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
         CheckOut checkOut = new CheckOut(bookSection, movieSection, dispatcher, input);
 
         Mockito.when(input.getString()).thenReturn("xxx");

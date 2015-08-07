@@ -29,4 +29,9 @@ public class Book implements LibraryItem {
         this.currentHolder = user;
         return currentHolder != null;
     }
+
+    @Override
+    public User getCurrentHolder() {
+        return currentHolder;
+    }
 }

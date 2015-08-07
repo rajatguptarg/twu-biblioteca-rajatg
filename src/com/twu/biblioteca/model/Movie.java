@@ -31,4 +31,9 @@ public class Movie implements LibraryItem {
         this.currentHolder = user;
         return currentHolder != null;
     }
+
+    @Override
+    public User getCurrentHolder() {
+        return currentHolder;
+    }
 }

@@ -8,4 +8,6 @@ public interface LibraryItem {
     String toString();
 
     boolean issueTo(User user);
+
+    User getCurrentHolder();
 }

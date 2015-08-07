@@ -26,6 +26,7 @@ public class Menu {
         optionsList += "4. List Movies\n";
         optionsList += "5. Check-Out Movie\n";
         optionsList += "6. CheckIn Movie\n";
+        optionsList += "7. My Profile\n";
 
         return optionsList;
     }
@@ -33,8 +34,9 @@ public class Menu {
     private String availableOptionsToAdmin() {
         optionsList = "";
         optionsList += availableOptionsToUser();
-        optionsList += "7. Display Checked Out Books\n";
-        optionsList += "8. Display Checked Out Movies\n";
+        optionsList += "8. Display Checked Out Books\n";
+        optionsList += "9. Display Checked Out Movies\n";
+        optionsList += "10. List of Users holding Items\n";
 
         return optionsList;
     }
@@ -49,10 +51,10 @@ public class Menu {
 
     private boolean validate(int userChoice, User user) {
         if (user.isNormalUser()) {
-            return (userChoice > -1 && userChoice < 7);
+            return (userChoice > -1 && userChoice < 8);
         }
         else {
-            return (userChoice > -1 && userChoice < 10);
+            return (userChoice > -1 && userChoice < 11);
         }
     }
 

@@ -29,7 +29,7 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
-        User user = new User("123-1234", "12345", "user");
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", "user");
 
         library.performCheckOut("my book", user);
 
@@ -42,7 +42,7 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
-        User user = new User("123-1234", "12345", "user");
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", "user");
 
         assertEquals(true, library.performCheckOut("my book", user));
     }
@@ -53,7 +53,7 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
-        User user = new User("123-1234", "12345", "user");
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", "user");
 
         library.performCheckOut("my book", user);
 
@@ -66,8 +66,20 @@ public class LibraryTest {
         List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
         availableItems.add(new Book("My Book", "Rajat", "2012"));
         Library library = new Library(availableItems, checkedOutItem);
-        User user = new User("123-1234", "12345", "user");
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", "user");
 
         assertEquals(false, library.performReturn("my book", user));
+    }
+
+    @Test
+    public void shouldBeAbleToReturnListOfUserHavingItems(){
+        List<LibraryItem> availableItems = new ArrayList<LibraryItem>();
+        List<LibraryItem> checkedOutItem = new ArrayList<LibraryItem>();
+        availableItems.add(new Book("My Book", "Rajat", "2012"));
+        checkedOutItem.add(new Book("Your Book", "John Doe", "2010"));
+        Library library = new Library(availableItems, checkedOutItem);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", "user");
+
+        assertEquals(true, library.returnUsersHavingItems().length() > 0);
     }
 }

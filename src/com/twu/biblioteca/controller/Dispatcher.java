@@ -49,11 +49,16 @@ public class Dispatcher {
                 checkIn.performCheckInMovie(user);
                 break;
             case 7:
-                listAll.checkedOutBooks(user);
+                listAll.userDetails(user);
                 break;
             case 8:
+                listAll.checkedOutBooks(user);
+                break;
+            case 9:
                 listAll.checkedOutMovies(user);
                 break;
+            case 10:
+                listAll.displayUserHavingBooks(user);
             default:
                 menu.run(user);
         }

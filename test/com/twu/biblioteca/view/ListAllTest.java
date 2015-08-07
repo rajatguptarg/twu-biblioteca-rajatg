@@ -16,7 +16,7 @@ public class ListAllTest {
         Library movieSection = Mockito.mock(Library.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         listAll.availableBooks(user);
 
@@ -29,7 +29,7 @@ public class ListAllTest {
         Library movieSection = Mockito.mock(Library.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         listAll.availableMovies(user);
 
@@ -42,7 +42,7 @@ public class ListAllTest {
         Library movieSection = Mockito.mock(Library.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         listAll.checkedOutBooks(user);
 
@@ -55,7 +55,7 @@ public class ListAllTest {
         Library movieSection = Mockito.mock(Library.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
         ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         listAll.checkedOutMovies(user);
 

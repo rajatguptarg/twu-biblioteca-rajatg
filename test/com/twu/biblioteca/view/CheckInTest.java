@@ -19,7 +19,7 @@ public class CheckInTest {
         Library movieSection = Mockito.mock(Library.class);
         Menu menu = Mockito.mock(Menu.class);
         CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         Mockito.when(input.getString()).thenReturn("great rajat");
         checkIn.performCheckInBook(user);
@@ -34,7 +34,7 @@ public class CheckInTest {
         Library bookSection = Mockito.mock(Library.class);
         Library movieSection = Mockito.mock(Library.class);
         CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         Mockito.when(input.getString()).thenReturn("xxx");
         checkIn.performCheckInMovie(user);

@@ -16,7 +16,7 @@ public class LoginTest {
         Session session = Mockito.mock(Session.class);
         Input input = Mockito.mock(Input.class);
         Dispatcher dispatcher = Mockito.mock(Dispatcher.class);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN);
         Login login = new Login(session, input, dispatcher);
 
         Mockito.when(session.login("123-1234", "12345")).thenReturn(user);

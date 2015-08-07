@@ -44,8 +44,8 @@ public class Main {
 
         List<User> userList = new ArrayList<User>();
 
-        userList.add(new User("123-1234", "12345", Constants.ADMIN));
-        userList.add(new User("123-1235", "12345", Constants.USER));
+        userList.add(new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN));
+        userList.add(new User("Name1", "email1", "12-12", "123-1235", "12345", Constants.USER));
 
         Session session = new Session(userList);
 

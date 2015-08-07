@@ -57,4 +57,12 @@ public class Library {
         }
         return searchedItem;
     }
+
+    public String returnUsersHavingItems() {
+        String users = "";
+        for (LibraryItem item : checkedOutItems) {
+            users += item.getCurrentHolder();
+        }
+        return users;
+    }
 }

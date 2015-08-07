@@ -15,7 +15,7 @@ public class MenuTest {
         Dispatcher dispatcher  = Mockito.mock(Dispatcher.class);
         Input input = Mockito.mock(Input.class);
         Menu menu = new Menu(dispatcher, input);
-        User user = new User("123-1234", "12345", Constants.ADMIN);
+        User user = new User("Name", "email", "12-12", "123-1234", "12345", Constants.ADMIN);
 
         Mockito.when(input.getNumber()).thenReturn(1);
 
