@@ -21,12 +21,17 @@ public class Book implements LibraryItem {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-20s %-6s", bookName, bookAuthor, yearPublished);
+        return String.format("%-20s %-20s %-6s\n", bookName, bookAuthor, yearPublished);
     }
 
     @Override
     public boolean issueTo(User user) {
         this.currentHolder = user;
         return currentHolder != null;
+    }
+
+    @Override
+    public User getCurrentHolder() {
+        return currentHolder;
     }
 }

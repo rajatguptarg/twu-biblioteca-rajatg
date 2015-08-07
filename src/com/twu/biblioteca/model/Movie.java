@@ -1,5 +1,6 @@
 package com.twu.biblioteca.model;
 
+
 public class Movie implements LibraryItem {
     private String movieName;
     private String yearReleased;
@@ -22,12 +23,17 @@ public class Movie implements LibraryItem {
 
     @Override
     public String toString() {
-        return String.format("%-20s %-6s %-20s %-5s", movieName, yearReleased, directorName, movieRating);
+        return String.format("%-20s %-6s %-20s %-5s\n", movieName, yearReleased, directorName, movieRating);
     }
 
     @Override
     public boolean issueTo(User user) {
         this.currentHolder = user;
         return currentHolder != null;
+    }
+
+    @Override
+    public User getCurrentHolder() {
+        return currentHolder;
     }
 }

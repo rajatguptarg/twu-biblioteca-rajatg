@@ -1,13 +1,15 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.controller.Dispatcher;
 import com.twu.biblioteca.controller.Session;
 import com.twu.biblioteca.controller.Library;
+import com.twu.biblioteca.helper.Constants;
+import com.twu.biblioteca.helper.Input;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.LibraryItem;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.User;
-import com.twu.biblioteca.view.Menu;
-import com.twu.biblioteca.view.View;
+import com.twu.biblioteca.view.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,6 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
 
         List<LibraryItem> movieList = new ArrayList<LibraryItem>();
         List<LibraryItem> movieListCheckedOut = new ArrayList<LibraryItem>();
@@ -39,15 +40,26 @@ public class Main {
 
         Library bookSection = new Library(bookList, checkedOutBookList);
 
+        Input input = new Input();
+
         List<User> userList = new ArrayList<User>();
 
-        userList.add(new User("123-1234", "12345", Constants.ADMIN));
-        userList.add(new User("123-1235", "12345", Constants.USER));
+        userList.add(new User("Name1", "email1", "12-12", "123-1234", "12345", Constants.ADMIN));
+        userList.add(new User("Name1", "email1", "12-12", "123-1235", "12345", Constants.USER));
 
         Session session = new Session(userList);
 
-        View view = new View(menu, bookSection, movieSection, session);
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(view);
+        Dispatcher dispatcher = new Dispatcher();
+        Login login = new Login(session, input, dispatcher);
+        Welcome welcome = new Welcome(login, input);
+        Menu menu = new Menu(dispatcher, input);
+        CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
+        CheckOut checkOut = new CheckOut(bookSection, movieSection, dispatcher, input);
+        ListAll listAll = new ListAll(bookSection, movieSection, dispatcher);
+
+        dispatcher.initiate(listAll, menu, checkOut, checkIn, welcome);
+
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(welcome);
 
         bibliotecaApp.run();
     }
