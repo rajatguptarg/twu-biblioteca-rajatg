@@ -15,12 +15,20 @@ public class Library {
         this.checkedOutItems = checkedOutItems;
     }
 
-    public List<LibraryItem> listAvailableItems() {
-        return availableItems;
+    public String listAvailableItems() {
+        String itemList = "";
+        for (LibraryItem item : availableItems) {
+            itemList += item;
+        }
+        return itemList;
     }
 
-    public List<LibraryItem> listCheckedOutItems() {
-        return checkedOutItems;
+    public String  listCheckedOutItems() {
+        String itemList = "";
+        for (LibraryItem item : checkedOutItems) {
+            itemList += item;
+        }
+        return itemList;
     }
 
     public boolean performCheckOut(String itemName, User user) {
@@ -48,5 +56,13 @@ public class Library {
             }
         }
         return searchedItem;
+    }
+
+    public String returnUsersHavingItems() {
+        String users = "";
+        for (LibraryItem item : checkedOutItems) {
+            users += item.getCurrentHolder();
+        }
+        return users;
     }
 }

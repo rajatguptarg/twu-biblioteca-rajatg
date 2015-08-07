@@ -1,53 +1,27 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.helper.Constants;
+import com.twu.biblioteca.controller.Dispatcher;
+import com.twu.biblioteca.helper.Input;
+import com.twu.biblioteca.model.User;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.mockito.Mockito;
 
 
 public class MenuTest {
 
     @Test
-    public void menuShouldReturnTheDisplayMessage() {
-        Menu menu = new Menu();
-        String expectedWelcomeMessage = "HELLO..!! WELCOME TO BIBLIOTECA..!!";
+    public void shouldBeAbleToDispatchUserChoice() {
+        Dispatcher dispatcher  = Mockito.mock(Dispatcher.class);
+        Input input = Mockito.mock(Input.class);
+        Menu menu = new Menu(dispatcher, input);
+        User user = new User("Name", "email", "12-12", "123-1234", "12345", Constants.ADMIN);
 
-        assertEquals(expectedWelcomeMessage, menu.returnWelcomeMessage());
-    }
+        Mockito.when(input.getNumber()).thenReturn(1);
 
-    @Test
-    public void menuShouldReturnListOfOperationsToUser() {
-        Menu menu = new Menu();
-        String expectedOptions =
-                "\n** MAIN MENU **\n" +
-                "================\n" +
-                "0. Quit\n" +
-                "1. List Books\n" +
-                "2. Check-Out Book\n" +
-                "3. Return Book\n" +
-                "4. List Movies\n" +
-                "5. Check-Out Movie\n" +
-                "6. Return Movie\n";
+        menu.run(user);
 
-        assertEquals(expectedOptions, menu.availableOptionsToUser());
-    }
+        Mockito.verify(dispatcher).start(1, user);
 
-    @Test
-    public void menuShouldReturnListOfOperationsToAdmin() {
-        Menu menu = new Menu();
-        String expectedOptions =
-                "\n** MAIN MENU **\n" +
-                "================\n" +
-                "0. Quit\n" +
-                "1. List Books\n" +
-                "2. Check-Out Book\n" +
-                "3. Return Book\n" +
-                "4. List Movies\n" +
-                "5. Check-Out Movie\n" +
-                "6. Return Movie\n" +
-                "7. Display Checked Out Books\n" +
-                "8. Display Checked Out Movies\n";
-
-        assertEquals(expectedOptions, menu.availableOptionsToAdmin());
     }
 }

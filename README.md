@@ -5,13 +5,13 @@ Biblioteca
 
 This is Library Management System which is used to manage the bookSection operations. The operations are following:
 
-**[1]** List All Books from Library
+**[1]** List All Books/Movies from Library
 
-**[2]** Check Out books from bookSection
+**[2]** Check Out books/movies from Library
 
-**[3]** Return Books to bookSection
+**[3]** Return Books/Movies to Library
 
-**[4]** Exit from application
+**[4]** List of Users who checked out items from library
 
 Requirements
 ============

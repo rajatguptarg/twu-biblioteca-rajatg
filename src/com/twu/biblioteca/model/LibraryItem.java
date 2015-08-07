@@ -1,5 +1,6 @@
 package com.twu.biblioteca.model;
 
+
 public interface LibraryItem {
 
     boolean hasTitle(String title);
@@ -7,4 +8,6 @@ public interface LibraryItem {
     String toString();
 
     boolean issueTo(User user);
+
+    User getCurrentHolder();
 }
