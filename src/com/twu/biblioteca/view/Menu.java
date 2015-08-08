@@ -36,7 +36,7 @@ public class Menu {
         optionsList += availableOptionsToUser();
         optionsList += "8. Display Checked Out Books\n";
         optionsList += "9. Display Checked Out Movies\n";
-        optionsList += "10. List of Users holding Items\n";
+        optionsList += "10. List of Users holding Books\n";
 
         return optionsList;
     }

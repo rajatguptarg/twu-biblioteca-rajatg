@@ -15,7 +15,11 @@ public class Input {
     }
 
     public int getNumber() {
-        return Integer.parseInt(getString());
+        try {
+            return Integer.parseInt(getString());
+        } catch (NumberFormatException e) {
+            return 9999;
+        }
     }
 
     public String getPassword() {

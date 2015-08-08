@@ -25,13 +25,21 @@ public class Book implements LibraryItem {
     }
 
     @Override
-    public boolean issueTo(User user) {
+    public void issueTo(User user) {
         this.currentHolder = user;
-        return currentHolder != null;
     }
 
     @Override
     public User getCurrentHolder() {
         return currentHolder;
+    }
+
+    @Override
+    public boolean resetOwnership(User user) {
+        if (currentHolder.equals(user)) {
+            currentHolder = null;
+            return true;
+        }
+        return false;
     }
 }
