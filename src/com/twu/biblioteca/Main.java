@@ -51,7 +51,7 @@ public class Main {
 
         Dispatcher dispatcher = new Dispatcher();
         Login login = new Login(session, input, dispatcher);
-        Welcome welcome = new Welcome(login, input);
+        Welcome welcome = new Welcome(login, input, dispatcher);
         Menu menu = new Menu(dispatcher, input);
         CheckIn checkIn = new CheckIn(bookSection, movieSection, dispatcher, input);
         CheckOut checkOut = new CheckOut(bookSection, movieSection, dispatcher, input);

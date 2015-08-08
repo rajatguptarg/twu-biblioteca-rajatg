@@ -18,7 +18,7 @@ public class Input {
         try {
             return Integer.parseInt(getString());
         } catch (NumberFormatException e) {
-            return -1;
+            return 9999;
         }
     }
 

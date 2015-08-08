@@ -1,19 +1,24 @@
 package com.twu.biblioteca.view;
 
 
+import com.twu.biblioteca.controller.Dispatcher;
+import com.twu.biblioteca.helper.Constants;
 import com.twu.biblioteca.helper.Input;
+
 
 public class Welcome {
     private String welcomeTitle;
     private String availableOptions;
     private Login login;
     private Input input;
+    private Dispatcher dispatcher;
 
-    public Welcome(Login login, Input input) {
+    public Welcome(Login login, Input input, Dispatcher dispatcher) {
         this.welcomeTitle = "HELLO..!! WELCOME TO BIBLIOTECA..!!\n\n";
         this.availableOptions = "";
         this.login = login;
         this.input = input;
+        this.dispatcher = dispatcher;
     }
 
     private String availableChoices() {
@@ -33,13 +38,15 @@ public class Welcome {
                 System.exit(0);
             default:
                 System.out.print("Invalid Choice.\n");
-                run();
+                dispatcher.start(Constants.WELCOME_RUN, null);
+
         }
     }
 
     public void run() {
         System.out.print(welcomeTitle);
         System.out.print(availableChoices());
+        boolean bool = true;
         System.out.print("\nEnter Choice: \n");
         int option = input.getNumber();
         execute(option);
