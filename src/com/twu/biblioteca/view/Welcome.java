@@ -24,13 +24,13 @@ public class Welcome {
     }
 
     private void execute(int option) {
+        System.out.println(option);
         switch (option) {
             case 1:
                 login.performLogin();
                 break;
             case 2:
                 System.exit(0);
-                break;
             default:
                 System.out.print("Invalid Choice.\n");
                 run();

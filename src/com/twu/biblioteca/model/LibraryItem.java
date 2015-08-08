@@ -7,7 +7,9 @@ public interface LibraryItem {
 
     String toString();
 
-    boolean issueTo(User user);
+    void issueTo(User user);
 
     User getCurrentHolder();
+
+    boolean resetOwnership(User user);
 }
