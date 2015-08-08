@@ -61,17 +61,17 @@ public class ListAll {
     public void userDetails(User user) {
         String header = String.format("%-20s %-20s %-20s %-12s", "LIBRARY NUMBER", "NAME", "EMAIL", "MOBILE");
         System.out.println("\n" + header);
-        System.out.println("=====================================================================");
+        System.out.println("=======================================================================");
         System.out.println(user);
         dispatcher.start(Constants.MENU_RUN, user);
     }
 
     public void displayUserHavingBooks(User user) {
         if (user.isAdminUser()) {
-            String header = String.format("%-20s %-20s %-20s %-12s", "LIBRARY NUMBER", "NAME", "EMAIL", "MOBILE");
+            String header = String.format("%-20s %-20s %-20s %-12s %-20s %-20s %-6s", "LIBRARY NUMBER", "NAME", "EMAIL", "MOBILE", "BOOK", "AUTHOR", "YEAR");
             System.out.println("\n" + header);
-            System.out.println("====================================================================");
-            System.out.println(bookSection.returnUsersHavingItems());
+            System.out.println("============================================================================================================================");
+            System.out.println(bookSection.returnUsersHavingBooks());
         }
         dispatcher.start(Constants.MENU_RUN, user);
     }

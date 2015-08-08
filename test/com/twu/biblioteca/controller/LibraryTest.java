@@ -80,6 +80,6 @@ public class LibraryTest {
         Library library = new Library(availableItems, checkedOutItem);
         User user = new User("Name1", "email1", "12-12", "123-1234", "12345", "user");
 
-        assertEquals(true, library.returnUsersHavingItems().length() > 0);
+        assertEquals(true, library.returnUsersHavingBooks().length() > 0);
     }
 }

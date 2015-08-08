@@ -36,7 +36,8 @@ public class Library {
         if (requiredItem == null || (checkedOutItems.contains(requiredItem))) {
             return false;
         }
-        return (checkedOutItems.add(requiredItem) && availableItems.remove(requiredItem) && requiredItem.issueTo(user));
+        requiredItem.issueTo(user);
+        return (checkedOutItems.add(requiredItem) && availableItems.remove(requiredItem));
     }
 
     public boolean performReturn(String itemName, User user) {
@@ -44,7 +45,10 @@ public class Library {
         if (requiredItem == null || availableItems.contains(requiredItem)) {
             return false;
         }
-        return (availableItems.add(requiredItem) && checkedOutItems.remove(requiredItem) && requiredItem.issueTo(user));
+        if (requiredItem.resetOwnership(user)) {
+            return (availableItems.add(requiredItem) && checkedOutItems.remove(requiredItem));
+        }
+        return false;
     }
 
     private LibraryItem searchItemByName(String itemName, List<LibraryItem> availableItems) {
@@ -58,10 +62,10 @@ public class Library {
         return searchedItem;
     }
 
-    public String returnUsersHavingItems() {
+    public String returnUsersHavingBooks() {
         String users = "";
         for (LibraryItem item : checkedOutItems) {
-            users += item.getCurrentHolder();
+            users += item.getCurrentHolder() + item.toString();
         }
         return users;
     }

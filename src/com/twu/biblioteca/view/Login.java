@@ -29,17 +29,9 @@ public class Login {
     private boolean initiateLogin() {
         System.out.print("\nEnter Library Number: \n");
         String libraryNumber = input.getString();
-        if (validate(libraryNumber)) {
-            String password = input.getPassword();
-            user = session.login(libraryNumber, password);
-            return loginStatus();
-        }
-        return false;
-    }
-
-    private boolean validate(String libraryNumber) {
-        String[] data = libraryNumber.split("-");
-        return data[0].length() == 3 && data[1].length() == 4;
+        String password = input.getPassword();
+        user = session.login(libraryNumber, password);
+        return loginStatus();
     }
 
     public void performLogin() {
