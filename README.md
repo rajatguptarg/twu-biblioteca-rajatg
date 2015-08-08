@@ -3,7 +3,7 @@
 Biblioteca
 ===========
 
-This is Library Management System which is used to manage the bookSection operations. The operations are following:
+This is Library Management System which is used to manage the library operations. The operations are following:
 
 **[1]** List All Books/Movies from Library
 
